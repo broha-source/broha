@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAB 404 Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* -------------------------------------------------------------
+           1. CORE STYLES & GEMINI THEME
+        ------------------------------------------------------------- */
+        :root {
+            --bg-color: #0b0c10;
+            --surface-color: #1f2833;
+            --accent-glow: rgba(0, 145, 255, 0.15);
+            --text-main: #f5f5f7;
+            --text-muted: #959da5;
+            --gemini-blue: #38bdf8;
+            --gemini-purple: #818cf8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* Ambient Glow Background Element */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -10%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, rgba(129, 140, 248, 0.05) 50%, transparent 100%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* -------------------------------------------------------------
+           2. NAVIGATION BAR
+        ------------------------------------------------------------- */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(11, 12, 16, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            background: linear-gradient(45deg, var(--gemini-blue), var(--gemini-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-item a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            transition: color 0.3s ease;
+        }
+
+        .nav-item a:hover {
+            color: var(--gemini-blue);
+        }
+
+        /* Admin Quick Trigger Button */
+        .admin-trigger {
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            color: var(--gemini-blue);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .admin-trigger:hover {
+            background: var(--gemini-blue);
+            color: var(--bg-color);
+        }
+
+        /* -------------------------------------------------------------
+           3. SECTION GENERAL & HERO STYLES
+        ------------------------------------------------------------- */
+        section {
+            padding: 100px 0 60px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 40px;
+            height: 3px;
+            background: var(--gemini-blue);
+            border-radius: 2px;
+        }
+
+        /* Home (Hero) Section */
+        #home {
+            text-align: center;
+            padding: 150px 0 100px 0;
+        }
+
+        #home h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        #home p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        /* -------------------------------------------------------------
+           4. DATA MATERIALS & CARD GRID (핵심 변경 영역)
+        ------------------------------------------------------------- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: rgba(31, 40, 51, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 25px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+
+        .card-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            border-radius: 4px;
+            background: rgba(129, 140, 248, 0.15);
+            color: var(--gemini-purple);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        /* Material Fast Viewer Buttons */
+        .material-box {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn-mat {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+            padding: 6px 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            color: var(--text-main);
+            transition: all 0.2s ease;
+        }
+
+        .btn-mat:hover {
+            background: rgba(56, 189, 248, 0.1);
+            border-color: var(--gemini-blue);
+            color: var(--gemini-blue);
+        }
+
+        /* News Section List Style */
+        .news-list {
+            list-style: none;
+        }
+
+        .news-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .news-date {
+            color: var(--gemini-blue);
+            font-weight: 600;
+            min-width: 120px;
+        }
+
+        /* -------------------------------------------------------------
+           5. DATA LIVE EDITOR MODAL (빠른 수정 패널)
+        ------------------------------------------------------------- */
+        .modal {
+            display: none; 
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(8px);
+            z-index: 200;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: #11141a;
+            border: 1px solid rgba(56, 189, 248, 0.4);
+            border-radius: 16px;
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-close {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            background: #1f2833;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 6px;
+            color: white;
+            outline: none;
+        }
+
+        .form-group input:focus {
+            border-color: var(--gemini-blue);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background: var(--gemini-blue);
+            border: none;
+            border-radius: 6px;
+            color: #0b0c10;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo">LAB 404</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="#home">Home</a></li>
+                    <li class="nav-item"><a href="#research">Research</a></li>
+                    <li class="nav-item"><a href="#achievements">Achievements</a></li>
+                    <li class="nav-item"><a href="#project">Project</a></li>
+                    <li class="nav-item"><a href="#news">News</a></li>
+                    <li><button class="admin-trigger" onclick="openModal()">자료 수정 패널</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home">
+        <div class="container">
+            <h1>LAB 404</h1>
+            <p>인공지능과 혁신적인 사용자 경험을 융합하여 미래 비즈니스 솔루션을 개척하는 포트폴리오 스페이스입니다.</p>
+        </div>
+    </section>
+
+    <section id="research">
+        <div class="container">
+            <h2 class="section-title">Research Focus</h2>
+            <div class="grid">
+                <div class="card">
+                    <span class="card-tag">AI & Optimization</span>
+                    <h3>인공지능 기반 설계 최적화</h3>
+                    <p>현업 제조 공정 데이터 및 물리 제약 조건을 융합한 딥러닝 기반 차세대 최적화 알고리즘 연구</p>
+                </div>
+                <div class="card">
+                    <span class="card-tag">Data Engine</span>
+                    <h3>확장 가능한 데이터 파이프라인</h3>
+                    <p>대형 언어 모델(LLM)과 정형 데이터를 유기적으로 결합하여 기업 맞춤형 인사이트 도출 알고리즘 수립</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements">
+        <div class="container">
+            <h2 class="section-title">Achievements</h2>
+            <div class="grid">
+                <div class="card">
+                    <span class="card-tag">Conference</span>
+                    <h3>KCI 우수 논문상 수상 (2026)</h3>
+                    <p>물리 가이드 인공지능 기반의 시뮬레이션 가속화 기법 제안 및 실증 연구 성과 입증</p>
+                </div>
+                <div class="card">
+                    <span class="card-tag">Award</span>
+                    <h3>Hanyang Outstanding Developer</h3>
+                    <p>산학협력 트랙 최우수 결과물 선정 및 핵심 모듈 오픈소스 기여 공로 인정</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="project">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <p style="color:var(--text-muted); margin-bottom: 25px;">※ 인사담당자를 위한 고해상도 이미지, 요약 PDF, 발표 PPT 자료가 실시간 연동되어 있습니다.</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <span class="card-tag">Main Project</span>
+                    <h3 id="proj-title">Next-Gen AI Platform 빌드</h3>
+                    <p>사용자 피드백 루프 기반의 인터랙티브 웹 플랫폼 구축 및 인프라 설계 프로젝트</p>
+                    
+                    <div class="material-box">
+                        <a href="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000" id="link-img" target="_blank" class="btn-mat">
+                            <i class="fa-regular fa-image"></i> 사진 보기
+                        </a>
+                        <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" id="link-pdf" target="_blank" class="btn-mat">
+                            <i class="fa-regular fa-file-pdf"></i> 요약 PDF
+                        </a>
+                        <a href="https://scholar.harvard.edu/files/trentonmize/files/mize_presentation_templates_2017.pptx" id="link-ppt" target="_blank" class="btn-mat">
+                            <i class="fa-regular fa-file-powerpoint"></i> 발표 PPT
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="news">
+        <div class="container">
+            <h2 class="section-title">News & Activity</h2>
+            <ul class="news-list">
+                <li class="news-item">
+                    <span class="news-date">2026. 07. 14</span>
+                    <span class="news-text">LAB 404 차세대 모던 포트폴리오 시스템 프로토타입 런칭 완료</span>
+                </li>
+                <li class="news-item">
+                    <span class="news-date">2026. 05. 20</span>
+                    <span class="news-text">주요 대기업 산학 과제 최종 데모데이 우수 기업 피드백 수렴</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 LAB 404. All rights reserved. Designed for Enterprise Tech Appeal.</p>
+        </div>
+    </footer>
+
+    <div class="modal" id="adminModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 style="background: linear-gradient(45deg, var(--gemini-blue), var(--gemini-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">자료 빠른 수정 패널</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:15px;">새로운 링크를 넣으면 포트폴리오 내의 자료 경로가 즉시 업데이트됩니다.</p>
+            
+            <div class="form-group">
+                <label for="input-title">프로젝트 이름</label>
+                <input type="text" id="input-title" value="Next-Gen AI Platform 빌드">
+            </div>
+            <div class="form-group">
+                <label for="input-img">사진 URL (Image Link)</label>
+                <input type="text" id="input-img" value="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000">
+            </div>
+            <div class="form-group">
+                <label for="input-pdf">PDF URL (Report Link)</label>
+                <input type="text" id="input-pdf" value="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf">
+            </div>
+            <div class="form-group">
+                <label for="input-ppt">PPT URL (Presentation Link)</label>
+                <input type="text" id="input-ppt" value="https://scholar.harvard.edu/files/trentonmize/files/mize_presentation_templates_2017.pptx">
+            </div>
+            
+            <button class="btn-submit" onclick="updateMaterials()">적용 및 화면 업데이트</button>
+        </div>
+    </div>
+
+    <script>
+        // 모달 열기/닫기 제어
+        function openModal() {
+            document.getElementById('adminModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('adminModal').style.display = 'none';
+        }
+
+        // 실시간 자료 업데이트 연동 함수
+        function updateMaterials() {
+            // 1. 입력 필드의 값 획득
+            const newTitle = document.getElementById('input-title').value;
+            const newImg = document.getElementById('input-img').value;
+            const newPdf = document.getElementById('input-pdf').value;
+            const newPpt = document.getElementById('input-ppt').value;
+
+            // 2. 메인 화면 DOM 요소 매핑 및 갱신
+            document.getElementById('proj-title').innerText = newTitle;
+            document.getElementById('link-img').href = newImg;
+            document.getElementById('link-pdf').href = newPdf;
+            document.getElementById('link-ppt').href = newPpt;
+
+            // 3. 사용자 안내 팝업 및 모달 닫기
+            alert('자료 주소가 즉시 변경되었습니다. 포트폴리오 프로젝트 내의 버튼을 눌러 확인해 보세요.');
+            closeModal();
+        }
+
+        // 모달 바깥쪽 클릭 시 닫히도록 설정
+        window.onclick = function(event) {
+            const modal = document.getElementById('adminModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
