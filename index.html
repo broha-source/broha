@@ -350,12 +350,20 @@
         }
 
         .footer-mark {
-            width: 54px;
-            height: 54px;
-            flex: 0 0 54px;
+            width: 88px;
+            height: 88px;
+            flex: 0 0 88px;
             background-color: #667085;
-            -webkit-mask: url("assets/hanyang-footer-logo.png") center / contain no-repeat;
-            mask: url("assets/hanyang-footer-logo.png") center / contain no-repeat;
+            -webkit-mask-image: url("assets/hanyang-footer-logo.png");
+            -webkit-mask-position: center;
+            -webkit-mask-size: contain;
+            -webkit-mask-repeat: no-repeat;
+            -webkit-mask-mode: luminance;
+            mask-image: url("assets/hanyang-footer-logo.png");
+            mask-position: center;
+            mask-size: contain;
+            mask-repeat: no-repeat;
+            mask-mode: luminance;
         }
 
         .footer-brand p {
