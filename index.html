@@ -80,12 +80,16 @@
         }
 
         .logo {
-            font-size: 1.4rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            background: linear-gradient(45deg, var(--gemini-blue), var(--gemini-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            display: inline-flex;
+            align-items: center;
+            height: 46px;
+        }
+
+        .logo img {
+            display: block;
+            width: auto;
+            height: 38px;
+            filter: invert(1);
         }
 
         .nav-menu {
@@ -344,7 +348,9 @@
 
     <header>
         <div class="container nav-container">
-            <div class="logo">LAB 404</div>
+            <a class="logo" href="#home" aria-label="홈으로 이동">
+                <img src="assets/header-logo.png" alt="IDEA 로고">
+            </a>
             <nav>
                 <ul class="nav-menu">
                     <li class="nav-item"><a href="#home">Home</a></li>
@@ -352,7 +358,6 @@
                     <li class="nav-item"><a href="#achievements">Achievements</a></li>
                     <li class="nav-item"><a href="#project">Project</a></li>
                     <li class="nav-item"><a href="#news">News</a></li>
-                    <li><button class="admin-trigger" onclick="openModal()">자료 수정 패널</button></li>
                 </ul>
             </nav>
         </div>
