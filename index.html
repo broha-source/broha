@@ -337,10 +337,29 @@
         }
 
         footer {
-            text-align: center;
             padding: 40px 0;
-            color: var(--text-muted);
+            color: #667085;
             font-size: 0.85rem;
+        }
+
+        .footer-brand {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .footer-mark {
+            width: 54px;
+            height: 54px;
+            flex: 0 0 54px;
+            background-color: #667085;
+            -webkit-mask: url("assets/hanyang-footer-logo.png") center / contain no-repeat;
+            mask: url("assets/hanyang-footer-logo.png") center / contain no-repeat;
+        }
+
+        .footer-brand p {
+            color: #667085;
         }
     </style>
 </head>
@@ -450,8 +469,9 @@
     </section>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2026 LAB 404. All rights reserved. Designed for Enterprise Tech Appeal.</p>
+        <div class="container footer-brand">
+            <span class="footer-mark" role="img" aria-label="Hanyang University 로고"></span>
+            <p>&copy; Ha Hyeongjin. Research archive</p>
         </div>
     </footer>
 
