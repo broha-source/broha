@@ -369,6 +369,19 @@
         .footer-brand p {
             color: #667085;
         }
+
+        /* Achievements Carousel */
+        .achievement-carousel { max-width: 820px; }
+        .achievement-track { min-height: 230px; }
+        .achievement-card { display: none; min-height: 230px; }
+        .achievement-card.is-active { display: block; animation: achievementFade 0.28s ease; }
+        .achievement-card h3 { margin-bottom: 6px; }
+        .achievement-date { display: block; margin-bottom: 14px; color: var(--gemini-blue); font-size: 0.9rem; font-weight: 600; }
+        .achievement-controls { display: flex; justify-content: space-between; align-items: center; gap: 14px; margin-top: 18px; }
+        .achievement-btn { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border: 1px solid #d9e0e8; border-radius: 8px; background: #ffffff; color: var(--text-muted); font: inherit; font-size: 0.9rem; cursor: pointer; transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease; }
+        .achievement-btn:hover { border-color: var(--gemini-blue); color: var(--gemini-blue); background: rgba(56, 189, 248, 0.07); }
+        .achievement-counter { color: var(--text-muted); font-size: 0.9rem; font-weight: 600; }
+        @keyframes achievementFade { from { opacity: 0; transform: translateX(8px); } to { opacity: 1; transform: translateX(0); } }
     </style>
 </head>
 <body>
@@ -418,16 +431,73 @@
     <section id="achievements">
         <div class="container">
             <h2 class="section-title">Achievements</h2>
-            <div class="grid">
-                <div class="card">
-                    <span class="card-tag">Conference</span>
-                    <h3>KCI 우수 논문상 수상 (2026)</h3>
-                    <p>물리 가이드 인공지능 기반의 시뮬레이션 가속화 기법 제안 및 실증 연구 성과 입증</p>
-                </div>
-                <div class="card">
+            <div class="achievement-carousel">
+                <div class="achievement-track">
+                <article class="achievement-card card is-active" data-achievement-index="0" aria-hidden="false">
+                    <span class="card-tag">Global Exhibition</span>
+                    <h3>ILS 2023</h3>
+                    <time class="achievement-date">2023.12.04–2023.12.07</time>
+                    <p>NAWA 엔지니어로 참가하여 기술·제품 소개 및 Allbigdat과의 업무 협약 체결에 기여</p>
+                </article>
+                <article class="achievement-card card" data-achievement-index="1" aria-hidden="true">
+                    <span class="card-tag">Global Exhibition</span>
+                    <h3>CES 2024</h3>
+                    <time class="achievement-date">2024.01.10–2024.01.13</time>
+                    <p>NAWA 엔지니어로 참가하여 부스 운영과 기술 소개를 담당하고 Partitalia와의 업무 협약 체결에 기여</p>
+                </article>
+                <article class="achievement-card card" data-achievement-index="2" aria-hidden="true">
                     <span class="card-tag">Award</span>
-                    <h3>Hanyang Outstanding Developer</h3>
-                    <p>산학협력 트랙 최우수 결과물 선정 및 핵심 모듈 오픈소스 기여 공로 인정</p>
+                    <h3>2024학년도 DSC 기획리빙랩 지원사업 · 우수상 (2nd)</h3>
+                    <time class="achievement-date">2024.08.27</time>
+                    <p>장애 아동의 이동 편의성과 탑승 안정성을 고려한 주행형 휠체어 카트 제작 및 사용자 중심 이동 솔루션 제안</p>
+                </article>
+                <article class="achievement-card card" data-achievement-index="3" aria-hidden="true">
+                    <span class="card-tag">Award</span>
+                    <h3>2024 미래모빌리티 허브 아이디어 공모전 · 장려상 (3rd)</h3>
+                    <time class="achievement-date">2024.09.26</time>
+                    <p>차량 하부 탐지 로봇과 관리 플랫폼을 결합한 자율주행 기반 전기차 화재 예방 시스템 제안</p>
+                </article>
+                <article class="achievement-card card" data-achievement-index="4" aria-hidden="true">
+                    <span class="card-tag">Award</span>
+                    <h3>2024 고려대학교 세종캠퍼스 창업경진대회 · 최우수상 (1st)</h3>
+                    <time class="achievement-date">2024.10.02</time>
+                    <p>로봇 플랫폼과 센서 기반 자율주행 시스템을 결합한 교내 택배 로봇 및 모빌리티 서비스 제안</p>
+                </article>
+                <article class="achievement-card card" data-achievement-index="5" aria-hidden="true">
+                    <span class="card-tag">Award</span>
+                    <h3>2024 DSC 공유대학 미래모빌리티 메이커 아이디어 기획전 · 장려상 (3rd)</h3>
+                    <time class="achievement-date">2024.11.19</time>
+                    <p>센서 기반 화재 탐지와 자율 이동 기능을 결합한 지하주차장 전기차 화재 예방 순찰 로봇 제작 및 시연</p>
+                </article>
+                <article class="achievement-card card" data-achievement-index="6" aria-hidden="true">
+                    <span class="card-tag">Award</span>
+                    <h3>제11회 고려대학교 전자기계융합공학과 학술제 · 우수상 (2nd)</h3>
+                    <time class="achievement-date">2024.11.28</time>
+                    <p>카메라 기반 객체 인식과 차량 제어 알고리즘을 결합한 자율주행 차량 시스템 설계 및 구현</p>
+                </article>
+                <article class="achievement-card card" data-achievement-index="7" aria-hidden="true">
+                    <span class="card-tag">Award</span>
+                    <h3>RIS 2024 모빌리티 ICT 창업캠프 · 대상 (1st)</h3>
+                    <time class="achievement-date">2024.12.13</time>
+                    <p>전기차 화재 예방 로봇과 데이터 관리 플랫폼을 결합한 스마트 주차장 통합 관리 시스템 제안</p>
+                </article>
+                <article class="achievement-card card" data-achievement-index="8" aria-hidden="true">
+                    <span class="card-tag">Award</span>
+                    <h3>제3회 고려대학교 전자기계융합공학과 Capstone Day · 동상 (3rd)</h3>
+                    <time class="achievement-date">2025.06.12</time>
+                    <p>센서 기반 환경 인식과 이동 로봇 플랫폼을 결합한 교내 자율주행 경비 로봇 설계 및 제작</p>
+                </article>
+                <article class="achievement-card card" data-achievement-index="9" aria-hidden="true">
+                    <span class="card-tag">Global Project</span>
+                    <h3>DSC 공유대학 글로벌 PBL 프로그램</h3>
+                    <time class="achievement-date">2026.01.21–2026.01.24</time>
+                    <p>눈벽과 센서 데이터를 활용한 가상 차선 생성 방안을 설계하여 화이트아웃 환경의 교통 안전 해결안 도출</p>
+                </article>
+                </div>
+                <div class="achievement-controls">
+                    <button type="button" class="achievement-btn" id="achievement-prev" aria-label="이전 경력 보기"><i class="fa-solid fa-arrow-left"></i> 이전</button>
+                    <span class="achievement-counter" id="achievement-counter" aria-live="polite">1 / 10</span>
+                    <button type="button" class="achievement-btn" id="achievement-next" aria-label="다음 경력 보기">다음 <i class="fa-solid fa-arrow-right"></i></button>
                 </div>
             </div>
         </div>
@@ -519,6 +589,29 @@
                 closeModal();
             }
         }
+    </script>
+
+    <script>
+        (function () {
+            const cards = Array.from(document.querySelectorAll('.achievement-card'));
+            const counter = document.getElementById('achievement-counter');
+            const previous = document.getElementById('achievement-prev');
+            const next = document.getElementById('achievement-next');
+            let current = 0;
+
+            function showAchievement(index) {
+                current = (index + cards.length) % cards.length;
+                cards.forEach((card, cardIndex) => {
+                    const active = cardIndex === current;
+                    card.classList.toggle('is-active', active);
+                    card.setAttribute('aria-hidden', String(!active));
+                });
+                counter.textContent = (current + 1) + ' / ' + cards.length;
+            }
+
+            previous.addEventListener('click', () => showAchievement(current - 1));
+            next.addEventListener('click', () => showAchievement(current + 1));
+        }());
     </script>
 </body>
 </html>
