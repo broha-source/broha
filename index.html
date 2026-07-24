@@ -382,6 +382,26 @@
         .achievement-btn:hover { border-color: var(--gemini-blue); color: var(--gemini-blue); background: rgba(56, 189, 248, 0.07); }
         .achievement-counter { color: var(--text-muted); font-size: 0.9rem; font-weight: 600; }
         @keyframes achievementFade { from { opacity: 0; transform: translateX(8px); } to { opacity: 1; transform: translateX(0); } }
+
+        /* Blueprint Engineering + Digital Wind Tunnel Hero */
+        #home { position: relative; min-height: 520px; display: flex; align-items: center; justify-content: center; overflow: hidden; isolation: isolate; }
+        #home::after { content: ''; position: absolute; inset: 0; z-index: -1; background: radial-gradient(circle at center, rgba(255,255,255,.72) 0%, rgba(247,249,252,.38) 48%, rgba(247,249,252,.88) 100%); pointer-events: none; }
+        .hero-content { position: relative; z-index: 2; }
+        .engineering-visual { position: absolute; inset: 0; z-index: -2; opacity: .42; pointer-events: none; }
+        .blueprint-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(56,189,248,.11) 1px, transparent 1px), linear-gradient(90deg, rgba(56,189,248,.11) 1px, transparent 1px); background-size: 42px 42px; mask-image: radial-gradient(ellipse at center, #000 18%, transparent 76%); animation: gridDrift 20s linear infinite; }
+        .engineering-svg { width: 100%; height: 100%; overflow: visible; }
+        .engineering-svg path, .engineering-svg circle { fill: none; stroke: #5f7894; stroke-width: 1.45; vector-effect: non-scaling-stroke; }
+        .jet-wire, .car-wire { opacity: .62; animation: blueprintFloat 7s ease-in-out infinite; }
+        .car-wire { animation-delay: -3.5s; }
+        .airflow path { stroke: #38bdf8; stroke-width: 1.25; stroke-dasharray: 12 16; opacity: .52; animation: airflowMove 7s linear infinite; }
+        .airflow-bottom path { animation-direction: reverse; animation-duration: 9s; }
+        .scan-points circle { fill: #38bdf8; stroke: none; opacity: .62; animation: scanPulse 2.8s ease-in-out infinite; }
+        @keyframes airflowMove { to { stroke-dashoffset: -112; } }
+        @keyframes blueprintFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+        @keyframes scanPulse { 0%,100% { opacity:.22; } 50% { opacity:.85; } }
+        @keyframes gridDrift { to { background-position: 42px 42px; } }
+        @media (max-width: 720px) { .engineering-visual { opacity: .28; } .engineering-svg { transform: scale(1.28); } #home { min-height: 480px; } }
+        @media (prefers-reduced-motion: reduce) { .blueprint-grid, .jet-wire, .car-wire, .airflow path, .scan-points circle { animation: none !important; } }
     </style>
 </head>
 <body>
@@ -404,7 +424,33 @@
     </header>
 
     <section id="home">
-        <div class="container">
+        <div class="engineering-visual" aria-hidden="true">
+            <div class="blueprint-grid"></div>
+            <svg class="engineering-svg" viewBox="0 0 1200 430" preserveAspectRatio="xMidYMid slice">
+                <g class="airflow airflow-top">
+                    <path d="M10 105 C190 35 350 60 505 115 S840 175 1190 82" />
+                    <path d="M20 142 C220 82 375 95 535 142 S875 202 1180 120" />
+                    <path d="M0 180 C190 138 370 140 550 180 S900 235 1200 165" />
+                </g>
+                <g class="jet-wire">
+                    <path d="M82 165 L275 140 L420 55 L452 62 L390 145 L555 177 L390 208 L452 294 L420 300 L275 216 L82 192 L38 180 Z" />
+                    <path d="M100 179 L520 179 M275 140 L275 216 M390 145 L390 208" />
+                    <circle cx="275" cy="179" r="7"/><circle cx="390" cy="179" r="7"/>
+                </g>
+                <g class="car-wire">
+                    <path d="M690 245 C725 205 790 183 885 180 L970 188 C1018 195 1078 225 1112 257 L1140 268 L1134 299 L1085 306 C1074 348 1016 348 1002 308 L795 308 C780 350 724 350 710 307 L665 298 L666 268 Z" />
+                    <path d="M750 240 L808 196 L884 192 L930 240 Z M690 265 L1110 265 M805 196 L824 240 M885 192 L915 240" />
+                    <circle cx="753" cy="306" r="30"/><circle cx="1045" cy="306" r="30"/>
+                    <circle cx="753" cy="306" r="8"/><circle cx="1045" cy="306" r="8"/>
+                </g>
+                <g class="airflow airflow-bottom">
+                    <path d="M610 345 C755 320 900 350 1180 322" />
+                    <path d="M620 370 C790 348 940 382 1190 350" />
+                </g>
+                <g class="scan-points"><circle cx="170" cy="156" r="3"/><circle cx="470" cy="179" r="3"/><circle cx="835" cy="210" r="3"/><circle cx="990" cy="242" r="3"/></g>
+            </svg>
+        </div>
+        <div class="container hero-content">
             <h1>LAB 404</h1>
             <p>Exploring new possibilities in intelligent design by integrating artificial intelligence with engineering knowledge.</p>
         </div>
