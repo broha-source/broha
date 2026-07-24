@@ -418,6 +418,40 @@
         @keyframes gridDrift { to { background-position: 42px 42px; } }
         @media (max-width: 720px) { .engineering-visual { opacity: .28; } .engineering-svg { transform: scale(1.28); } #home { min-height: 480px; } }
         @media (prefers-reduced-motion: reduce) { .blueprint-grid, .engineering-photo, .jet-wire, .car-wire, .airflow path, .scan-points circle { animation: none !important; } }
+
+        /* Full detail pages */
+        .detail-page { display: none; min-height: calc(100vh - 70px); padding: 105px 0 75px; border-bottom: 1px solid #e6eaf0; }
+        .detail-page.is-active { display: block; animation: pageIn .28s ease; }
+        body.detail-route > section:not(.detail-page) { display: none; }
+        .detail-hero { margin-bottom: 46px; }
+        .detail-eyebrow { color: var(--gemini-blue); font-size: .76rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+        .detail-hero h1 { margin-top: 8px; font-size: clamp(2.4rem, 6vw, 4.3rem); line-height: 1.05; letter-spacing: -.05em; }
+        .detail-hero p { max-width: 680px; margin-top: 18px; color: var(--text-muted); }
+        .detail-group + .detail-group { margin-top: 62px; }
+        .detail-group-title { display: flex; align-items: center; gap: 12px; margin-bottom: 23px; }
+        .detail-group-title h2 { font-size: 1.55rem; }
+        .detail-count { padding: 2px 9px; border: 1px solid #d9e0e8; border-radius: 99px; color: var(--text-muted); font-size: .8rem; }
+        .detail-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; }
+        .detail-card { background: #fff; border: 1px solid #e6eaf0; border-radius: 14px; padding: 25px; box-shadow: 0 10px 30px rgba(23,32,51,.035); }
+        .detail-card h3 { margin: 12px 0 5px; font-size: 1.16rem; line-height: 1.45; }
+        .detail-card time { display: block; margin-bottom: 12px; color: var(--gemini-blue); font-size: .88rem; font-weight: 600; }
+        .detail-card p { color: var(--text-muted); font-size: .94rem; }
+        .detail-timeline { position: relative; padding-left: 27px; }
+        .detail-timeline::before { content:''; position:absolute; left:5px; top:10px; bottom:10px; width:1px; background:#d8e1ea; }
+        .detail-timeline .detail-card { position: relative; margin-bottom: 18px; }
+        .detail-timeline .detail-card::before { content:''; position:absolute; left:-28px; top:29px; width:11px; height:11px; border-radius:50%; background:#fff; border:3px solid var(--gemini-blue); }
+        .about-layout { display:grid; grid-template-columns:300px 1fr; gap:46px; align-items:start; }
+        .profile-placeholder { aspect-ratio:4/5; display:grid; place-items:center; padding:25px; text-align:center; color:#98a2b3; border:1px dashed #cbd5e1; border-radius:18px; background:linear-gradient(145deg,#eef3f8,#fff); }
+        .profile-placeholder i { display:block; margin-bottom:12px; font-size:3rem; }
+        .about-copy h2 { font-size:2rem; }
+        .about-copy > p { margin-top:14px; color:var(--text-muted); }
+        .contact-list { display:grid; gap:11px; margin-top:25px; }
+        .contact-row { display:flex; align-items:center; gap:12px; min-height:50px; padding:11px 14px; color:var(--text-muted); border:1px solid #e6eaf0; border-radius:10px; background:#fff; }
+        .contact-row i { width:20px; color:var(--gemini-blue); text-align:center; }
+        .empty-detail { padding:45px 25px; text-align:center; color:var(--text-muted); border:1px dashed #cbd5e1; border-radius:14px; background:rgba(255,255,255,.55); }
+        .nav-item a.active { color:var(--gemini-blue); }
+        @keyframes pageIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:none; } }
+        @media(max-width:760px){ .nav-menu{gap:14px;flex-wrap:wrap;justify-content:flex-end}.nav-item a{font-size:.82rem}.detail-grid,.about-layout{grid-template-columns:1fr}.profile-placeholder{max-width:300px}.detail-page{padding-top:75px} }
     </style>
 </head>
 <body>
@@ -430,10 +464,11 @@
             <nav>
                 <ul class="nav-menu">
                     <li class="nav-item"><a href="#home">Home</a></li>
-                    <li class="nav-item"><a href="#research">Research</a></li>
-                    <li class="nav-item"><a href="#achievements">Achievements</a></li>
-                    <li class="nav-item"><a href="#project">Project</a></li>
-                    <li class="nav-item"><a href="#news">News</a></li>
+                    <li class="nav-item"><a href="#about-page">About</a></li>
+                    <li class="nav-item"><a href="#research-page">Research</a></li>
+                    <li class="nav-item"><a href="#achievements-page">Achievements</a></li>
+                    <li class="nav-item"><a href="#project-page">Project</a></li>
+                    <li class="nav-item"><a href="#news-page">News</a></li>
                 </ul>
             </nav>
         </div>
@@ -557,6 +592,59 @@
         </div>
     </section>
 
+
+    <section id="about-page" class="detail-page" data-route="about">
+        <div class="container">
+            <div class="detail-hero"><span class="detail-eyebrow">Profile</span><h1>About</h1><p>연구 관심 분야와 경력, 연락 채널을 한곳에서 소개하는 개인 프로필 페이지입니다.</p></div>
+            <div class="about-layout">
+                <div class="profile-placeholder"><div><i class="fa-regular fa-user"></i><strong>Profile photo</strong><br><small>사진 전달 후 적용 예정</small></div></div>
+                <div class="about-copy"><h2>Ha Hyeongjin</h2><p>Artificial Intelligence와 공학적 지식을 결합해 지능형 설계와 미래 모빌리티의 새로운 가능성을 탐구합니다. 상세 자기소개는 전달해 주시는 내용에 맞춰 구성할 예정입니다.</p>
+                    <div class="contact-list">
+                        <div class="contact-row"><i class="fa-solid fa-phone"></i><span>연락처 입력 예정</span></div>
+                        <div class="contact-row"><i class="fa-regular fa-envelope"></i><span>이메일 입력 예정</span></div>
+                        <div class="contact-row"><i class="fa-brands fa-instagram"></i><span>Instagram 입력 예정</span></div>
+                        <div class="contact-row"><i class="fa-solid fa-location-dot"></i><span>소속 및 연구실 정보 입력 예정</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="research-page" class="detail-page" data-route="research">
+        <div class="container">
+            <div class="detail-hero"><span class="detail-eyebrow">Intelligent Design</span><h1>Research</h1><p>인공지능과 공학적 지식을 기반으로 진행하는 연구 방향과 기술 주제를 정리합니다.</p></div>
+            <div class="detail-grid">
+                <article class="detail-card"><span class="card-tag">AI & Optimization</span><h3>인공지능 기반 설계 최적화</h3><p>현업 제조 공정 데이터 및 물리 제약 조건을 융합한 딥러닝 기반 차세대 최적화 알고리즘 연구</p></article>
+                <article class="detail-card"><span class="card-tag">Data Engine</span><h3>확장 가능한 데이터 파이프라인</h3><p>대형 언어 모델과 정형 데이터를 유기적으로 결합하여 맞춤형 인사이트를 도출하는 알고리즘 연구</p></article>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements-page" class="detail-page" data-route="achievements">
+        <div class="container">
+            <div class="detail-hero"><span class="detail-eyebrow">Career Archive</span><h1>Achievements</h1><p>전시·수상·글로벌 프로젝트 성과를 주제별로 구분하고, 각 주제 안에서 빠른 날짜순으로 정리했습니다.</p></div>
+            <div class="detail-group"><div class="detail-group-title"><h2>Global Exhibition</h2><span class="detail-count">2</span></div><div class="detail-timeline">
+                <article class="detail-card"><span class="card-tag">Global Exhibition</span><h3>ILS 2023</h3><time>2023.12.04–2023.12.07</time><p>NAWA 엔지니어로 참가하여 기술·제품 소개 및 Allbigdat과의 업무 협약 체결에 기여</p></article>
+                <article class="detail-card"><span class="card-tag">Global Exhibition</span><h3>CES 2024</h3><time>2024.01.10–2024.01.13</time><p>NAWA 엔지니어로 참가하여 부스 운영과 기술 소개를 담당하고 Partitalia와의 업무 협약 체결에 기여</p></article>
+            </div></div>
+            <div class="detail-group"><div class="detail-group-title"><h2>Award</h2><span class="detail-count">7</span></div><div class="detail-timeline">
+                <article class="detail-card"><span class="card-tag">Award</span><h3>2024학년도 DSC 기획리빙랩 지원사업 · 우수상 (2nd)</h3><time>2024.08.27</time><p>장애 아동의 이동 편의성과 탑승 안정성을 고려한 주행형 휠체어 카트 제작 및 사용자 중심 이동 솔루션 제안</p></article>
+                <article class="detail-card"><span class="card-tag">Award</span><h3>2024 미래모빌리티 허브 아이디어 공모전 · 장려상 (3rd)</h3><time>2024.09.26</time><p>차량 하부 탐지 로봇과 관리 플랫폼을 결합한 자율주행 기반 전기차 화재 예방 시스템 제안</p></article>
+                <article class="detail-card"><span class="card-tag">Award</span><h3>2024 고려대학교 세종캠퍼스 창업경진대회 · 최우수상 (1st)</h3><time>2024.10.02</time><p>로봇 플랫폼과 센서 기반 자율주행 시스템을 결합한 교내 택배 로봇 및 모빌리티 서비스 제안</p></article>
+                <article class="detail-card"><span class="card-tag">Award</span><h3>2024 DSC 공유대학 미래모빌리티 메이커 아이디어 기획전 · 장려상 (3rd)</h3><time>2024.11.19</time><p>센서 기반 화재 탐지와 자율 이동 기능을 결합한 지하주차장 전기차 화재 예방 순찰 로봇 제작 및 시연</p></article>
+                <article class="detail-card"><span class="card-tag">Award</span><h3>제11회 고려대학교 전자기계융합공학과 학술제 · 우수상 (2nd)</h3><time>2024.11.28</time><p>카메라 기반 객체 인식과 차량 제어 알고리즘을 결합한 자율주행 차량 시스템 설계 및 구현</p></article>
+                <article class="detail-card"><span class="card-tag">Award</span><h3>RIS 2024 모빌리티 ICT 창업캠프 · 대상 (1st)</h3><time>2024.12.13</time><p>전기차 화재 예방 로봇과 데이터 관리 플랫폼을 결합한 스마트 주차장 통합 관리 시스템 제안</p></article>
+                <article class="detail-card"><span class="card-tag">Award</span><h3>제3회 고려대학교 전자기계융합공학과 Capstone Day · 동상 (3rd)</h3><time>2025.06.12</time><p>센서 기반 환경 인식과 이동 로봇 플랫폼을 결합한 교내 자율주행 경비 로봇 설계 및 제작</p></article>
+            </div></div>
+            <div class="detail-group"><div class="detail-group-title"><h2>Global Project</h2><span class="detail-count">1</span></div><div class="detail-timeline">
+                <article class="detail-card"><span class="card-tag">Global Project</span><h3>DSC 공유대학 글로벌 PBL 프로그램</h3><time>2026.01.21–2026.01.24</time><p>눈벽과 센서 데이터를 활용한 가상 차선 생성 방안을 설계하여 화이트아웃 환경의 교통 안전 해결안 도출</p></article>
+            </div></div>
+        </div>
+    </section>
+
+    <section id="project-page" class="detail-page" data-route="project"><div class="container"><div class="detail-hero"><span class="detail-eyebrow">Engineering Portfolio</span><h1>Project</h1><p>프로젝트별 설계 과정, 구현 결과와 관련 자료를 정리하는 상세 페이지입니다.</p></div><div class="empty-detail">프로젝트 자료를 전달해 주시면 카드와 상세 설명을 날짜순으로 추가합니다.</div></div></section>
+    <section id="news-page" class="detail-page" data-route="news"><div class="container"><div class="detail-hero"><span class="detail-eyebrow">Updates</span><h1>News & Activity</h1><p>연구·프로젝트·대외 활동의 최신 소식을 날짜순으로 기록합니다.</p></div><div class="empty-detail">새로운 활동 내용을 전달해 주시면 최신 날짜순으로 추가합니다.</div></div></section>
+
     <footer>
         <div class="container footer-brand">
             <span class="footer-mark" role="img" aria-label="Hanyang University 로고"></span>
@@ -653,5 +741,25 @@
             next.addEventListener('click', () => showAchievement(current + 1));
         }());
     </script>
+
+    <script>
+        (function () {
+            const routes = ['about','research','achievements','project','news'];
+            function renderRoute() {
+                const route = location.hash.replace('#','').replace('-page','');
+                const detailMode = routes.includes(route);
+                document.body.classList.toggle('detail-route', detailMode);
+                document.querySelectorAll('.detail-page').forEach(page => page.classList.toggle('is-active', detailMode && page.dataset.route === route));
+                document.querySelectorAll('.nav-item a').forEach(link => {
+                    const target = link.getAttribute('href').replace('#','').replace('-page','');
+                    link.classList.toggle('active', detailMode ? target === route : target === 'home');
+                });
+                if (detailMode) window.scrollTo(0, 0);
+            }
+            window.addEventListener('hashchange', renderRoute);
+            renderRoute();
+        }());
+    </script>
+
 </body>
 </html>
