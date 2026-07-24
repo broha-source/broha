@@ -390,18 +390,20 @@
         .engineering-visual { position: absolute; inset: 0; z-index: -2; opacity: .42; pointer-events: none; }
         .blueprint-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(56,189,248,.11) 1px, transparent 1px), linear-gradient(90deg, rgba(56,189,248,.11) 1px, transparent 1px); background-size: 42px 42px; mask-image: radial-gradient(ellipse at center, #000 18%, transparent 76%); animation: gridDrift 20s linear infinite; }
         .engineering-svg { width: 100%; height: 100%; overflow: visible; }
+        .engineering-photo { width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: .72; animation: blueprintPhotoFloat 9s ease-in-out infinite; }
         .engineering-svg path, .engineering-svg circle { fill: none; stroke: #5f7894; stroke-width: 1.45; vector-effect: non-scaling-stroke; }
         .jet-wire, .car-wire { opacity: .62; animation: blueprintFloat 7s ease-in-out infinite; }
         .car-wire { animation-delay: -3.5s; }
         .airflow path { stroke: #38bdf8; stroke-width: 1.25; stroke-dasharray: 12 16; opacity: .52; animation: airflowMove 7s linear infinite; }
         .airflow-bottom path { animation-direction: reverse; animation-duration: 9s; }
         .scan-points circle { fill: #38bdf8; stroke: none; opacity: .62; animation: scanPulse 2.8s ease-in-out infinite; }
+        @keyframes blueprintPhotoFloat { 0%,100% { transform: scale(1.01) translateY(0); } 50% { transform: scale(1.025) translateY(-4px); } }
         @keyframes airflowMove { to { stroke-dashoffset: -112; } }
         @keyframes blueprintFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
         @keyframes scanPulse { 0%,100% { opacity:.22; } 50% { opacity:.85; } }
         @keyframes gridDrift { to { background-position: 42px 42px; } }
         @media (max-width: 720px) { .engineering-visual { opacity: .28; } .engineering-svg { transform: scale(1.28); } #home { min-height: 480px; } }
-        @media (prefers-reduced-motion: reduce) { .blueprint-grid, .jet-wire, .car-wire, .airflow path, .scan-points circle { animation: none !important; } }
+        @media (prefers-reduced-motion: reduce) { .blueprint-grid, .engineering-photo, .jet-wire, .car-wire, .airflow path, .scan-points circle { animation: none !important; } }
     </style>
 </head>
 <body>
@@ -426,42 +428,7 @@
     <section id="home">
         <div class="engineering-visual" aria-hidden="true">
             <div class="blueprint-grid"></div>
-            <svg class="engineering-svg" viewBox="0 0 1200 430" preserveAspectRatio="xMidYMid slice">
-                <g class="airflow airflow-top">
-                    <path d="M10 105 C190 35 350 60 505 115 S840 175 1190 82" />
-                    <path d="M20 142 C220 82 375 95 535 142 S875 202 1180 120" />
-                    <path d="M0 180 C190 138 370 140 550 180 S900 235 1200 165" />
-                </g>
-                <g class="jet-wire">
-                    <path d="M36 174 L105 142 L202 116 L294 51 L330 58 L292 126 L382 103 L506 137 L560 174 L493 195 L392 190 L326 294 L292 288 L300 202 L205 221 L108 207 Z" />
-                    <path d="M105 142 L178 163 L300 160 L382 103 M108 207 L185 190 L300 188 L392 190" />
-                    <path d="M202 116 L234 143 L300 160 L294 51 M205 221 L240 195 L300 188 L326 294" />
-                    <path d="M178 163 Q222 106 276 139 L300 160 Q232 168 178 163 Z" />
-                    <path d="M300 160 L560 174 L300 188 Z M392 146 L493 166 M392 181 L493 182" />
-                    <path d="M316 136 L348 65 L376 72 L360 145 M324 199 L354 262 L382 252 L367 193" />
-                    <path d="M454 146 L501 137 L523 153 M456 190 L501 195 L525 181" />
-                    <circle cx="208" cy="157" r="5"/><circle cx="333" cy="174" r="6"/><circle cx="471" cy="173" r="5"/>
-                </g>
-                <g class="car-wire">
-                    <path d="M650 292 L672 252 L730 230 L806 211 L890 205 L966 222 L1038 250 L1121 267 L1154 290 L1145 316 L1097 322 C1085 365 1020 365 1008 323 L804 323 C790 365 724 365 711 322 L668 316 Z" />
-                    <path d="M674 252 L756 249 L818 216 L895 211 L960 232 L1002 253 L1092 267" />
-                    <path d="M756 249 L820 222 L850 251 Z M858 250 L898 214 L955 234 L982 252 Z" />
-                    <path d="M650 292 L735 276 L1002 276 L1121 267 M668 316 L804 310 L1008 311 L1145 316" />
-                    <path d="M735 276 L804 323 M1002 276 L1008 323 M850 251 L858 250 L845 309 M982 252 L955 310" />
-                    <path d="M692 272 L750 260 L774 269 L724 284 Z M1030 264 L1093 273 L1112 289 L1044 281 Z" />
-                    <path d="M878 276 L935 276 L920 294 L884 294 Z M822 285 L852 279 L844 300 L814 306" />
-                    <path d="M995 230 L1058 217 L1064 224 L1009 243 M1058 217 L1088 218" />
-                    <circle cx="757" cy="322" r="34"/><circle cx="1053" cy="322" r="34"/>
-                    <circle cx="757" cy="322" r="21"/><circle cx="1053" cy="322" r="21"/>
-                    <path d="M757 301 L757 343 M736 322 L778 322 M743 307 L772 337 M772 307 L743 337" />
-                    <path d="M1053 301 L1053 343 M1032 322 L1074 322 M1039 307 L1068 337 M1068 307 L1039 337" />
-                </g>
-                <g class="airflow airflow-bottom">
-                    <path d="M610 345 C755 320 900 350 1180 322" />
-                    <path d="M620 370 C790 348 940 382 1190 350" />
-                </g>
-                <g class="scan-points"><circle cx="170" cy="156" r="3"/><circle cx="470" cy="179" r="3"/><circle cx="835" cy="210" r="3"/><circle cx="990" cy="242" r="3"/></g>
-            </svg>
+            <img class="engineering-photo" src="assets/hero-wireframe-v2.png" alt="">
         </div>
         <div class="container hero-content">
             <h1>LAB 404</h1>
