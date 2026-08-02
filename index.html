@@ -384,21 +384,23 @@
             text-align: center;
         }
 
-        /* Achievements multi-item slider */
-        .achievement-carousel { max-width: none; }
-        .achievement-track { display:grid; grid-auto-flow:column; grid-auto-columns:calc((100% - 36px)/3); gap:18px; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:thin; padding:2px 2px 12px; }
-        .achievement-card { display:block; min-height:250px; scroll-snap-align:start; }
-        .achievement-card.is-active { display:block; animation:none; }
-        .achievement-card h3 { margin-bottom:6px; }
-        .achievement-date { display:block; margin-bottom:14px; color:var(--gemini-blue); font-size:.9rem; font-weight:600; }
-        .achievement-controls { display:flex; justify-content:space-between; align-items:center; gap:14px; margin-top:18px; }
-        .achievement-btn { display:inline-flex; align-items:center; gap:8px; padding:9px 16px; border:1px solid #d9e0e8; border-radius:8px; background:#fff; color:var(--text-muted); font:inherit; font-size:.9rem; cursor:pointer; transition:border-color .2s ease,color .2s ease,background .2s ease; }
-        .achievement-btn:hover { border-color:var(--text-main); color:var(--text-main); background:#f7f9fc; }
-        .achievement-counter { color:var(--text-muted); font-size:.9rem; font-weight:600; }
-        @media(max-width:900px){ .achievement-track{grid-auto-columns:calc((100% - 18px)/2)} }
-        @media(max-width:620px){ .achievement-track{grid-auto-columns:88%} }
+        /* Achievements overview grid */
+        .achievement-carousel { max-width:none; }
+        .achievement-track { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+        .achievement-card, .achievement-card.is-active { display:block; min-height:0; padding:19px; animation:none; }
+        .achievement-card h3 { margin:7px 0 5px; font-size:1rem; line-height:1.42; }
+        .achievement-card .card-tag { margin-bottom:3px; }
+        .achievement-date { display:block; margin-bottom:0; color:var(--text-main); font-size:.78rem; font-weight:600; }
+        .achievement-card p { display:none; }
+        .achievement-controls { display:none; }
+        @media(max-width:900px){ .achievement-track{grid-template-columns:repeat(2,minmax(0,1fr))} }
+        @media(max-width:580px){ .achievement-track{grid-template-columns:1fr} }
 
 
+        .project-preview .project-sketch, .project-detail-head .project-sketch { height:240px; min-height:240px; overflow:hidden; }
+        .project-realistic-img { min-height:0; height:100%; }
+        .project-preview-copy { min-height:210px; display:flex; flex-direction:column; align-items:flex-start; }
+        .project-preview-copy .project-open { margin-top:auto; }
         .hero-meta { display:grid; gap:4px; max-width:650px; margin:0 auto; color:var(--text-muted); font-size:1rem; letter-spacing:.02em; }
         .hero-meta span { display:block; }
         .hero-meta strong { color:var(--text-main); font-size:.78rem; letter-spacing:.1em; margin-right:8px; }
@@ -553,66 +555,62 @@
                     <time class="achievement-date">2023.12.04–2023.12.07</time>
                     <p>NAWA 엔지니어로 참가하여 기술·제품 소개 및 Allbigdat과의 업무 협약 체결에 기여</p>
                 </article>
-                <article class="achievement-card card" data-achievement-index="1" aria-hidden="true">
+                <article class="achievement-card card" data-achievement-index="1" aria-hidden="false">
                     <span class="card-tag">Global Exhibition</span>
                     <h3>CES 2024</h3>
                     <time class="achievement-date">2024.01.10–2024.01.13</time>
                     <p>NAWA 엔지니어로 참가하여 부스 운영과 기술 소개를 담당하고 Partitalia와의 업무 협약 체결에 기여</p>
                 </article>
-                <article class="achievement-card card" data-achievement-index="2" aria-hidden="true">
+                <article class="achievement-card card" data-achievement-index="2" aria-hidden="false">
                     <span class="card-tag">Award</span>
                     <h3>2024학년도 DSC 기획리빙랩 지원사업 · 우수상 (2nd)</h3>
                     <time class="achievement-date">2024.08.27</time>
                     <p>장애 아동의 이동 편의성과 탑승 안정성을 고려한 주행형 휠체어 카트 제작 및 사용자 중심 이동 솔루션 제안</p>
                 </article>
-                <article class="achievement-card card" data-achievement-index="3" aria-hidden="true">
+                <article class="achievement-card card" data-achievement-index="3" aria-hidden="false">
                     <span class="card-tag">Award</span>
                     <h3>2024 미래모빌리티 허브 아이디어 공모전 · 장려상 (3rd)</h3>
                     <time class="achievement-date">2024.09.26</time>
                     <p>차량 하부 탐지 로봇과 관리 플랫폼을 결합한 자율주행 기반 전기차 화재 예방 시스템 제안</p>
                 </article>
-                <article class="achievement-card card" data-achievement-index="4" aria-hidden="true">
+                <article class="achievement-card card" data-achievement-index="4" aria-hidden="false">
                     <span class="card-tag">Award</span>
                     <h3>2024 고려대학교 세종캠퍼스 창업경진대회 · 최우수상 (1st)</h3>
                     <time class="achievement-date">2024.10.02</time>
                     <p>로봇 플랫폼과 센서 기반 자율주행 시스템을 결합한 교내 택배 로봇 및 모빌리티 서비스 제안</p>
                 </article>
-                <article class="achievement-card card" data-achievement-index="5" aria-hidden="true">
+                <article class="achievement-card card" data-achievement-index="5" aria-hidden="false">
                     <span class="card-tag">Award</span>
                     <h3>2024 DSC 공유대학 미래모빌리티 메이커 아이디어 기획전 · 장려상 (3rd)</h3>
                     <time class="achievement-date">2024.11.19</time>
                     <p>센서 기반 화재 탐지와 자율 이동 기능을 결합한 지하주차장 전기차 화재 예방 순찰 로봇 제작 및 시연</p>
                 </article>
-                <article class="achievement-card card" data-achievement-index="6" aria-hidden="true">
+                <article class="achievement-card card" data-achievement-index="6" aria-hidden="false">
                     <span class="card-tag">Award</span>
                     <h3>제11회 고려대학교 전자기계융합공학과 학술제 · 우수상 (2nd)</h3>
                     <time class="achievement-date">2024.11.28</time>
                     <p>카메라 기반 객체 인식과 차량 제어 알고리즘을 결합한 자율주행 차량 시스템 설계 및 구현</p>
                 </article>
-                <article class="achievement-card card" data-achievement-index="7" aria-hidden="true">
+                <article class="achievement-card card" data-achievement-index="7" aria-hidden="false">
                     <span class="card-tag">Award</span>
                     <h3>RIS 2024 모빌리티 ICT 창업캠프 · 대상 (1st)</h3>
                     <time class="achievement-date">2024.12.13</time>
                     <p>전기차 화재 예방 로봇과 데이터 관리 플랫폼을 결합한 스마트 주차장 통합 관리 시스템 제안</p>
                 </article>
-                <article class="achievement-card card" data-achievement-index="8" aria-hidden="true">
+                <article class="achievement-card card" data-achievement-index="8" aria-hidden="false">
                     <span class="card-tag">Award</span>
                     <h3>제3회 고려대학교 전자기계융합공학과 Capstone Day · 동상 (3rd)</h3>
                     <time class="achievement-date">2025.06.12</time>
                     <p>센서 기반 환경 인식과 이동 로봇 플랫폼을 결합한 교내 자율주행 경비 로봇 설계 및 제작</p>
                 </article>
-                <article class="achievement-card card" data-achievement-index="9" aria-hidden="true">
+                <article class="achievement-card card" data-achievement-index="9" aria-hidden="false">
                     <span class="card-tag">Global Project</span>
                     <h3>DSC 공유대학 글로벌 PBL 프로그램</h3>
                     <time class="achievement-date">2026.01.21–2026.01.24</time>
                     <p>눈벽과 센서 데이터를 활용한 가상 차선 생성 방안을 설계하여 화이트아웃 환경의 교통 안전 해결안 도출</p>
                 </article>
                 </div>
-                <div class="achievement-controls">
-                    <button type="button" class="achievement-btn" id="achievement-prev" aria-label="이전 경력 보기"><i class="fa-solid fa-arrow-left"></i> 이전</button>
-                    <span class="achievement-counter" id="achievement-counter" aria-live="polite">1 / 10</span>
-                    <button type="button" class="achievement-btn" id="achievement-next" aria-label="다음 경력 보기">다음 <i class="fa-solid fa-arrow-right"></i></button>
-                </div>
+
             </div>
         </div>
     </section>
@@ -626,7 +624,7 @@
                     <div class="project-preview-copy"><span class="card-tag">Thermal Engineering</span><h3>Cooling Channel Design for Space Data Center Heat Sinks</h3><p>우주 데이터센터의 열관리 성능 향상을 위한 방열판 냉각 유로 설계</p><span class="project-open">View project <i class="fa-solid fa-arrow-right"></i></span></div>
                 </a>
                 <a class="card project-preview" href="#project-pytorch" aria-label="Deep Learning with PyTorch Study 상세 보기">
-                    <div class="project-sketch"><svg viewBox="0 0 520 210" role="img" aria-label="Deep learning neural network with PyTorch line sketch"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M68 55c42 0 42 100 0 100M190 36c56 0 56 138 0 138M326 55c42 0 42 100 0 100" opacity=".28"/><g opacity=".55"><path d="M90 58l92-20M90 58l92 67M90 105l92-67M90 105l92 87M90 152l92-27M90 152l92 40M202 38l112 28M202 38l112 78M202 125l112-59M202 125l112 50M202 192l112-76M202 192l112-17M334 66l90 39M334 116l90-11M334 175l90-70"/></g><g fill="#fff"><circle cx="90" cy="58" r="9"/><circle cx="90" cy="105" r="9"/><circle cx="90" cy="152" r="9"/><circle cx="202" cy="38" r="9"/><circle cx="202" cy="125" r="9"/><circle cx="202" cy="192" r="9"/><circle cx="334" cy="66" r="9"/><circle cx="334" cy="116" r="9"/><circle cx="334" cy="175" r="9"/><circle cx="424" cy="105" r="12"/></g><path d="M414 38c22 13 26 34 8 50 3-13-2-21-13-27 5 17-12 22-4 39" stroke-width="3"/></g></svg></div>
+                    <div class="project-sketch"><img class="project-realistic-img" src="assets/pytorch-study-realistic-v1.png" alt="Realistic deep-learning research workstation"></div>
                     <div class="project-preview-copy"><span class="card-tag">Deep Learning</span><h3>Deep Learning with PyTorch Study</h3><p>PyTorch 기반 딥러닝 모델 구현과 학습 과정을 기록한 기술 스터디</p><span class="project-open">View project <i class="fa-solid fa-arrow-right"></i></span></div>
                 </a>
             </div>
@@ -658,10 +656,11 @@
 
     <section id="research-page" class="detail-page" data-route="research">
         <div class="container">
-            <div class="detail-hero"><span class="detail-eyebrow">Intelligent Design</span><h1>Research</h1><p>인공지능과 공학적 지식을 기반으로 진행하는 연구 방향과 기술 주제를 정리합니다.</p></div>
+            <div class="detail-hero"><span class="detail-eyebrow">Research Direction</span><h1>Research</h1><p>우주 데이터센터 열관리에서 출발해 인공지능 기반 공학설계와 미래 모빌리티 시스템으로 확장하는 연구 방향입니다.</p></div>
             <div class="detail-grid">
-                <article class="detail-card"><span class="card-tag">AI & Optimization</span><h3>인공지능 기반 설계 최적화</h3><p>현업 제조 공정 데이터 및 물리 제약 조건을 융합한 딥러닝 기반 차세대 최적화 알고리즘 연구</p></article>
-                <article class="detail-card"><span class="card-tag">Data Engine</span><h3>확장 가능한 데이터 파이프라인</h3><p>대형 언어 모델과 정형 데이터를 유기적으로 결합하여 맞춤형 인사이트를 도출하는 알고리즘 연구</p></article>
+                <article class="detail-card"><span class="card-tag">Space Thermal Systems</span><h3>Orbital Data Center Thermal Management</h3><p>우주 데이터센터의 안정적인 연산 환경을 위한 방열 구조, 냉각 유로, 열교환 시스템의 설계와 성능 최적화 연구</p></article>
+                <article class="detail-card"><span class="card-tag">Intelligent Engineering</span><h3>AI-Driven Engineering Design</h3><p>인공지능과 공학 해석 데이터를 결합하여 설계 탐색과 최적화 과정을 지능화하는 확장형 공학설계 방법론 연구</p></article>
+                <article class="detail-card"><span class="card-tag">Future Systems</span><h3>Autonomous & Sustainable Systems</h3><p>극한 환경과 이동 환경에서 효율·안전·지속가능성을 높이는 자율 시스템과 차세대 모빌리티 기술 연구</p></article>
             </div>
         </div>
     </section>
@@ -700,7 +699,7 @@
                 </div>
             </article>
             <article class="project-detail-block" id="project-pytorch">
-                <div class="project-detail-head"><div class="project-detail-copy"><span class="card-tag">Deep Learning</span><h2>Deep Learning with PyTorch Study</h2><p>PyTorch를 활용해 딥러닝의 핵심 개념, 모델 구현, 학습 및 평가 과정을 체계적으로 기록하는 스터디 프로젝트입니다.</p></div><div class="project-sketch"><svg viewBox="0 0 520 210" role="img" aria-label="Deep learning neural network with PyTorch line sketch"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M68 55c42 0 42 100 0 100M190 36c56 0 56 138 0 138M326 55c42 0 42 100 0 100" opacity=".28"/><g opacity=".55"><path d="M90 58l92-20M90 58l92 67M90 105l92-67M90 105l92 87M90 152l92-27M90 152l92 40M202 38l112 28M202 38l112 78M202 125l112-59M202 125l112 50M202 192l112-76M202 192l112-17M334 66l90 39M334 116l90-11M334 175l90-70"/></g><g fill="#fff"><circle cx="90" cy="58" r="9"/><circle cx="90" cy="105" r="9"/><circle cx="90" cy="152" r="9"/><circle cx="202" cy="38" r="9"/><circle cx="202" cy="125" r="9"/><circle cx="202" cy="192" r="9"/><circle cx="334" cy="66" r="9"/><circle cx="334" cy="116" r="9"/><circle cx="334" cy="175" r="9"/><circle cx="424" cy="105" r="12"/></g><path d="M414 38c22 13 26 34 8 50 3-13-2-21-13-27 5 17-12 22-4 39" stroke-width="3"/></g></svg></div></div>
+                <div class="project-detail-head"><div class="project-detail-copy"><span class="card-tag">Deep Learning</span><h2>Deep Learning with PyTorch Study</h2><p>PyTorch를 활용해 딥러닝의 핵심 개념, 모델 구현, 학습 및 평가 과정을 체계적으로 기록하는 스터디 프로젝트입니다.</p></div><div class="project-sketch"><img class="project-realistic-img" src="assets/pytorch-study-realistic-v1.png" alt="Realistic deep-learning research workstation"></div></div>
                 <div class="attachment-stack" aria-label="PyTorch study files">
                     <div class="attachment-item"><span class="attachment-order">01</span><span><strong>Study Notes</strong><small>개념 정리 및 학습 기록</small></span><span class="attachment-status">PDF 추가 예정</span></div>
                     <div class="attachment-item"><span class="attachment-order">02</span><span><strong>Code & Experiments</strong><small>모델 코드와 실험 결과</small></span><span class="attachment-status">자료 추가 예정</span></div>
@@ -786,31 +785,7 @@
     </script>
 
     <script>
-        (function () {
-            const track = document.querySelector('.achievement-track');
-            const cards = Array.from(document.querySelectorAll('.achievement-card'));
-            const counter = document.getElementById('achievement-counter');
-            const previous = document.getElementById('achievement-prev');
-            const next = document.getElementById('achievement-next');
-            let current = 0;
-            function visibleCount() { return Math.max(1, Math.round(track.clientWidth / cards[0].offsetWidth)); }
-            function updateCounter() {
-                const visible = visibleCount();
-                counter.textContent = (current + 1) + '–' + Math.min(cards.length, current + visible) + ' / ' + cards.length;
-            }
-            function move(direction) {
-                const visible = visibleCount();
-                const maxStart = Math.max(0, cards.length - visible);
-                current = Math.max(0, Math.min(maxStart, current + direction * visible));
-                track.scrollTo({ left: cards[current].offsetLeft - track.offsetLeft, behavior: 'smooth' });
-                updateCounter();
-            }
-            cards.forEach(card => { card.classList.add('is-active'); card.setAttribute('aria-hidden', 'false'); });
-            previous.addEventListener('click', () => move(-1));
-            next.addEventListener('click', () => move(1));
-            window.addEventListener('resize', updateCounter);
-            updateCounter();
-        }());
+
     </script>
 
     <script>
