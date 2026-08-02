@@ -384,19 +384,26 @@
             text-align: center;
         }
 
-        /* Achievements Carousel */
-        .achievement-carousel { max-width: 820px; }
-        .achievement-track { min-height: 230px; }
-        .achievement-card { display: none; min-height: 230px; }
-        .achievement-card.is-active { display: block; animation: achievementFade 0.28s ease; }
-        .achievement-card h3 { margin-bottom: 6px; }
-        .achievement-date { display: block; margin-bottom: 14px; color: var(--gemini-blue); font-size: 0.9rem; font-weight: 600; }
-        .achievement-controls { display: flex; justify-content: space-between; align-items: center; gap: 14px; margin-top: 18px; }
-        .achievement-btn { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border: 1px solid #d9e0e8; border-radius: 8px; background: #ffffff; color: var(--text-muted); font: inherit; font-size: 0.9rem; cursor: pointer; transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease; }
-        .achievement-btn:hover { border-color: var(--gemini-blue); color: var(--gemini-blue); background: rgba(56, 189, 248, 0.07); }
-        .achievement-counter { color: var(--text-muted); font-size: 0.9rem; font-weight: 600; }
-        @keyframes achievementFade { from { opacity: 0; transform: translateX(8px); } to { opacity: 1; transform: translateX(0); } }
+        /* Achievements multi-item slider */
+        .achievement-carousel { max-width: none; }
+        .achievement-track { display:grid; grid-auto-flow:column; grid-auto-columns:calc((100% - 36px)/3); gap:18px; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:thin; padding:2px 2px 12px; }
+        .achievement-card { display:block; min-height:250px; scroll-snap-align:start; }
+        .achievement-card.is-active { display:block; animation:none; }
+        .achievement-card h3 { margin-bottom:6px; }
+        .achievement-date { display:block; margin-bottom:14px; color:var(--gemini-blue); font-size:.9rem; font-weight:600; }
+        .achievement-controls { display:flex; justify-content:space-between; align-items:center; gap:14px; margin-top:18px; }
+        .achievement-btn { display:inline-flex; align-items:center; gap:8px; padding:9px 16px; border:1px solid #d9e0e8; border-radius:8px; background:#fff; color:var(--text-muted); font:inherit; font-size:.9rem; cursor:pointer; transition:border-color .2s ease,color .2s ease,background .2s ease; }
+        .achievement-btn:hover { border-color:var(--text-main); color:var(--text-main); background:#f7f9fc; }
+        .achievement-counter { color:var(--text-muted); font-size:.9rem; font-weight:600; }
+        @media(max-width:900px){ .achievement-track{grid-auto-columns:calc((100% - 18px)/2)} }
+        @media(max-width:620px){ .achievement-track{grid-auto-columns:88%} }
 
+
+        .hero-meta { display:grid; gap:4px; max-width:650px; margin:0 auto; color:var(--text-muted); font-size:1rem; letter-spacing:.02em; }
+        .hero-meta span { display:block; }
+        .hero-meta strong { color:var(--text-main); font-size:.78rem; letter-spacing:.1em; margin-right:8px; }
+        .project-realistic-img { width:100%; height:100%; min-height:210px; display:block; object-fit:cover; object-position:center; }
+        .project-detail-block { scroll-margin-top:92px; }
         /* Blueprint Engineering + Digital Wind Tunnel Hero */
         #home { position: relative; min-height: 520px; display: flex; align-items: center; justify-content: center; overflow: hidden; isolation: isolate; }
         #home::after { content: ''; position: absolute; inset: 0; z-index: -1; background: radial-gradient(circle at center, rgba(255,255,255,.72) 0%, rgba(247,249,252,.38) 48%, rgba(247,249,252,.88) 100%); pointer-events: none; }
@@ -507,8 +514,8 @@
             <img class="engineering-photo" src="assets/hero-wireframe-v2.png" alt="">
         </div>
         <div class="container hero-content">
-            <h1>LAB 404</h1>
-            <p>Exploring new possibilities in intelligent design by integrating artificial intelligence with engineering knowledge.</p>
+            <h1>Ha Hyeong-Jin</h1>
+            <div class="hero-meta"><span><strong>UNIVERSITY</strong> Hanyang University ERICA</span><span><strong>DEPARTMENT</strong> Mechanical Engineering</span><span><strong>POSITION</strong> Graduate Intern</span></div>
         </div>
     </section>
 
@@ -517,14 +524,19 @@
             <h2 class="section-title">Research Focus</h2>
             <div class="grid">
                 <div class="card">
-                    <span class="card-tag">AI & Optimization</span>
-                    <h3>인공지능 기반 설계 최적화</h3>
-                    <p>현업 제조 공정 데이터 및 물리 제약 조건을 융합한 딥러닝 기반 차세대 최적화 알고리즘 연구</p>
+                    <span class="card-tag">Space Thermal Systems</span>
+                    <h3>Orbital Data Center Thermal Management</h3>
+                    <p>우주 데이터센터의 안정적인 연산 환경을 위한 방열 구조, 냉각 유로 및 열관리 시스템 설계 연구</p>
                 </div>
                 <div class="card">
-                    <span class="card-tag">Data Engine</span>
-                    <h3>확장 가능한 데이터 파이프라인</h3>
-                    <p>대형 언어 모델(LLM)과 정형 데이터를 유기적으로 결합하여 기업 맞춤형 인사이트 도출 알고리즘 수립</p>
+                    <span class="card-tag">Intelligent Engineering</span>
+                    <h3>AI-Driven Engineering Design</h3>
+                    <p>인공지능과 공학 해석을 결합하여 우주 시스템부터 미래 모빌리티까지 확장 가능한 지능형 설계 방법론 탐구</p>
+                </div>
+                <div class="card">
+                    <span class="card-tag">Future Systems</span>
+                    <h3>Autonomous & Sustainable Systems</h3>
+                    <p>극한 환경과 이동 환경에서 효율·안전·지속가능성을 높이는 자율 시스템 및 차세대 모빌리티 기술 연구</p>
                 </div>
             </div>
         </div>
@@ -609,11 +621,11 @@
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
             <div class="grid">
-                <a class="card project-preview" href="#project-page" aria-label="Cooling Channel Design for Space Data Center Heat Sinks 상세 보기">
-                    <div class="project-sketch"><svg viewBox="0 0 520 210" role="img" aria-label="Space data center heat sink cooling channel line sketch"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="74" y="42" width="372" height="126" rx="14"/><path d="M105 63v84M126 63v84M147 63v84M168 63v84M352 63v84M373 63v84M394 63v84M415 63v84" opacity=".38"/><path d="M190 75h112c19 0 25 14 25 26s-7 25-25 25h-77c-18 0-25 13-25 26"/><path d="M190 75l12-8m-12 8l12 8M200 152l-8-12m8 12l8-12"/><circle cx="260" cy="100" r="11"/><path d="M260 89V60m0 51v31M249 100h-29m51 0h29" opacity=".6"/><path d="M55 105H28m464 0h-27M260 24V7" stroke-dasharray="6 7"/></g></svg></div>
+                <a class="card project-preview" href="#project-odc" aria-label="Cooling Channel Design for Space Data Center Heat Sinks 상세 보기">
+                    <div class="project-sketch"><img class="project-realistic-img" src="assets/odc-realistic-v1.png" alt="Realistic orbital data center thermal-management concept"></div>
                     <div class="project-preview-copy"><span class="card-tag">Thermal Engineering</span><h3>Cooling Channel Design for Space Data Center Heat Sinks</h3><p>우주 데이터센터의 열관리 성능 향상을 위한 방열판 냉각 유로 설계</p><span class="project-open">View project <i class="fa-solid fa-arrow-right"></i></span></div>
                 </a>
-                <a class="card project-preview" href="#project-page" aria-label="Deep Learning with PyTorch Study 상세 보기">
+                <a class="card project-preview" href="#project-pytorch" aria-label="Deep Learning with PyTorch Study 상세 보기">
                     <div class="project-sketch"><svg viewBox="0 0 520 210" role="img" aria-label="Deep learning neural network with PyTorch line sketch"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M68 55c42 0 42 100 0 100M190 36c56 0 56 138 0 138M326 55c42 0 42 100 0 100" opacity=".28"/><g opacity=".55"><path d="M90 58l92-20M90 58l92 67M90 105l92-67M90 105l92 87M90 152l92-27M90 152l92 40M202 38l112 28M202 38l112 78M202 125l112-59M202 125l112 50M202 192l112-76M202 192l112-17M334 66l90 39M334 116l90-11M334 175l90-70"/></g><g fill="#fff"><circle cx="90" cy="58" r="9"/><circle cx="90" cy="105" r="9"/><circle cx="90" cy="152" r="9"/><circle cx="202" cy="38" r="9"/><circle cx="202" cy="125" r="9"/><circle cx="202" cy="192" r="9"/><circle cx="334" cy="66" r="9"/><circle cx="334" cy="116" r="9"/><circle cx="334" cy="175" r="9"/><circle cx="424" cy="105" r="12"/></g><path d="M414 38c22 13 26 34 8 50 3-13-2-21-13-27 5 17-12 22-4 39" stroke-width="3"/></g></svg></div>
                     <div class="project-preview-copy"><span class="card-tag">Deep Learning</span><h3>Deep Learning with PyTorch Study</h3><p>PyTorch 기반 딥러닝 모델 구현과 학습 과정을 기록한 기술 스터디</p><span class="project-open">View project <i class="fa-solid fa-arrow-right"></i></span></div>
                 </a>
@@ -638,7 +650,6 @@
                     <div class="contact-list">
                         <a class="contact-row" href="mailto:broha@hanyang.ac.kr"><i class="fa-regular fa-envelope"></i><span>broha@hanyang.ac.kr</span></a>
                         <div class="contact-row"><i class="fa-solid fa-location-dot"></i><span>5공학관 224호</span></div>
-                        <a class="instagram-link" href="https://www.instagram.com/bro._.ha?igsh=Z3B6Z2hpM290Zmo%3D" target="_blank" rel="noopener noreferrer" aria-label="Ha Hyeongjin Instagram 열기"><i class="fa-brands fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
@@ -680,15 +691,15 @@
     <section id="project-page" class="detail-page" data-route="project">
         <div class="container">
             <div class="detail-hero"><span class="detail-eyebrow">Engineering Portfolio</span><h1>Project</h1><p>프로젝트별 설계 과정과 결과 자료를 순서대로 축적하는 기술 아카이브입니다.</p></div>
-            <article class="project-detail-block">
-                <div class="project-detail-head"><div class="project-detail-copy"><span class="card-tag">Thermal Engineering</span><h2>Cooling Channel Design for Space Data Center Heat Sinks</h2><p>우주 환경에서 운용되는 데이터센터의 열을 효율적으로 방출하기 위한 방열판 유로 구조 설계 프로젝트입니다.</p></div><div class="project-sketch"><svg viewBox="0 0 520 210" role="img" aria-label="Space data center heat sink cooling channel line sketch"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="74" y="42" width="372" height="126" rx="14"/><path d="M105 63v84M126 63v84M147 63v84M168 63v84M352 63v84M373 63v84M394 63v84M415 63v84" opacity=".38"/><path d="M190 75h112c19 0 25 14 25 26s-7 25-25 25h-77c-18 0-25 13-25 26"/><path d="M190 75l12-8m-12 8l12 8M200 152l-8-12m8 12l8-12"/><circle cx="260" cy="100" r="11"/><path d="M260 89V60m0 51v31M249 100h-29m51 0h29" opacity=".6"/><path d="M55 105H28m464 0h-27M260 24V7" stroke-dasharray="6 7"/></g></svg></div></div>
+            <article class="project-detail-block" id="project-odc">
+                <div class="project-detail-head"><div class="project-detail-copy"><span class="card-tag">Thermal Engineering</span><h2>Cooling Channel Design for Space Data Center Heat Sinks</h2><p>우주 환경에서 운용되는 데이터센터의 열을 효율적으로 방출하기 위한 방열판 유로 구조 설계 프로젝트입니다.</p></div><div class="project-sketch"><img class="project-realistic-img" src="assets/odc-realistic-v1.png" alt="Realistic orbital data center thermal-management concept"></div></div>
                 <div class="attachment-stack" aria-label="Space data center project files">
                     <div class="attachment-item"><span class="attachment-order">01</span><span><strong>Project Overview</strong><small>프로젝트 개요 및 설계 요구사항</small></span><span class="attachment-status">PDF 추가 예정</span></div>
                     <div class="attachment-item"><span class="attachment-order">02</span><span><strong>Design & Analysis</strong><small>유로 설계와 해석 결과</small></span><span class="attachment-status">자료 추가 예정</span></div>
                     <div class="attachment-item"><span class="attachment-order">03</span><span><strong>Presentation & Results</strong><small>발표자료 및 최종 결과</small></span><span class="attachment-status">자료 추가 예정</span></div>
                 </div>
             </article>
-            <article class="project-detail-block">
+            <article class="project-detail-block" id="project-pytorch">
                 <div class="project-detail-head"><div class="project-detail-copy"><span class="card-tag">Deep Learning</span><h2>Deep Learning with PyTorch Study</h2><p>PyTorch를 활용해 딥러닝의 핵심 개념, 모델 구현, 학습 및 평가 과정을 체계적으로 기록하는 스터디 프로젝트입니다.</p></div><div class="project-sketch"><svg viewBox="0 0 520 210" role="img" aria-label="Deep learning neural network with PyTorch line sketch"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M68 55c42 0 42 100 0 100M190 36c56 0 56 138 0 138M326 55c42 0 42 100 0 100" opacity=".28"/><g opacity=".55"><path d="M90 58l92-20M90 58l92 67M90 105l92-67M90 105l92 87M90 152l92-27M90 152l92 40M202 38l112 28M202 38l112 78M202 125l112-59M202 125l112 50M202 192l112-76M202 192l112-17M334 66l90 39M334 116l90-11M334 175l90-70"/></g><g fill="#fff"><circle cx="90" cy="58" r="9"/><circle cx="90" cy="105" r="9"/><circle cx="90" cy="152" r="9"/><circle cx="202" cy="38" r="9"/><circle cx="202" cy="125" r="9"/><circle cx="202" cy="192" r="9"/><circle cx="334" cy="66" r="9"/><circle cx="334" cy="116" r="9"/><circle cx="334" cy="175" r="9"/><circle cx="424" cy="105" r="12"/></g><path d="M414 38c22 13 26 34 8 50 3-13-2-21-13-27 5 17-12 22-4 39" stroke-width="3"/></g></svg></div></div>
                 <div class="attachment-stack" aria-label="PyTorch study files">
                     <div class="attachment-item"><span class="attachment-order">01</span><span><strong>Study Notes</strong><small>개념 정리 및 학습 기록</small></span><span class="attachment-status">PDF 추가 예정</span></div>
@@ -776,24 +787,29 @@
 
     <script>
         (function () {
+            const track = document.querySelector('.achievement-track');
             const cards = Array.from(document.querySelectorAll('.achievement-card'));
             const counter = document.getElementById('achievement-counter');
             const previous = document.getElementById('achievement-prev');
             const next = document.getElementById('achievement-next');
             let current = 0;
-
-            function showAchievement(index) {
-                current = (index + cards.length) % cards.length;
-                cards.forEach((card, cardIndex) => {
-                    const active = cardIndex === current;
-                    card.classList.toggle('is-active', active);
-                    card.setAttribute('aria-hidden', String(!active));
-                });
-                counter.textContent = (current + 1) + ' / ' + cards.length;
+            function visibleCount() { return Math.max(1, Math.round(track.clientWidth / cards[0].offsetWidth)); }
+            function updateCounter() {
+                const visible = visibleCount();
+                counter.textContent = (current + 1) + '–' + Math.min(cards.length, current + visible) + ' / ' + cards.length;
             }
-
-            previous.addEventListener('click', () => showAchievement(current - 1));
-            next.addEventListener('click', () => showAchievement(current + 1));
+            function move(direction) {
+                const visible = visibleCount();
+                const maxStart = Math.max(0, cards.length - visible);
+                current = Math.max(0, Math.min(maxStart, current + direction * visible));
+                track.scrollTo({ left: cards[current].offsetLeft - track.offsetLeft, behavior: 'smooth' });
+                updateCounter();
+            }
+            cards.forEach(card => { card.classList.add('is-active'); card.setAttribute('aria-hidden', 'false'); });
+            previous.addEventListener('click', () => move(-1));
+            next.addEventListener('click', () => move(1));
+            window.addEventListener('resize', updateCounter);
+            updateCounter();
         }());
     </script>
 
@@ -801,7 +817,8 @@
         (function () {
             const routes = ['about','research','achievements','project','news'];
             function renderRoute() {
-                const route = location.hash.replace('#','').replace('-page','');
+                const raw = location.hash.replace('#','');
+                const route = raw.startsWith('project-') ? 'project' : raw.replace('-page','');
                 const detailMode = routes.includes(route);
                 document.body.classList.toggle('detail-route', detailMode);
                 document.querySelectorAll('.detail-page').forEach(page => page.classList.toggle('is-active', detailMode && page.dataset.route === route));
@@ -809,7 +826,13 @@
                     const target = link.getAttribute('href').replace('#','').replace('-page','');
                     link.classList.toggle('active', detailMode ? target === route : target === 'home');
                 });
-                if (detailMode) window.scrollTo(0, 0);
+                if (detailMode) {
+                    requestAnimationFrame(() => {
+                        const target = document.getElementById(raw);
+                        if (target && raw.startsWith('project-')) target.scrollIntoView({ behavior:'smooth', block:'start' });
+                        else window.scrollTo(0,0);
+                    });
+                }
             }
             window.addEventListener('hashchange', renderRoute);
             renderRoute();
