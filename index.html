@@ -490,7 +490,8 @@
         .attachment-link { transition:border-color .2s ease, transform .2s ease, box-shadow .2s ease; }
         .attachment-link:hover { border-color:#98a2b3; transform:translateY(-2px); box-shadow:0 10px 24px rgba(16,24,40,.08); }
         .attachment-link .attachment-status { color:#344054; font-weight:700; }
-        .study-notes-archive { margin-top:42px; padding-top:8px; scroll-margin-top:92px; }
+        .study-notes-archive { display:none; margin-top:42px; padding-top:8px; scroll-margin-top:92px; }
+        .study-notes-archive.is-open { display:block; }
         .study-notes-head { margin-bottom:20px; }
         .study-notes-head h3 { margin:9px 0 5px; font-size:1.42rem; }
         .study-notes-head p { color:var(--text-muted); }
@@ -821,6 +822,8 @@
                 const raw = location.hash.replace('#','');
                 const route = raw.startsWith('project-') ? 'project' : raw.replace('-page','');
                 const detailMode = routes.includes(route);
+                const studyArchive = document.getElementById('project-pytorch-study-notes');
+                if (studyArchive) studyArchive.classList.toggle('is-open', raw === 'project-pytorch-study-notes');
                 document.body.classList.toggle('detail-route', detailMode);
                 document.querySelectorAll('.detail-page').forEach(page => page.classList.toggle('is-active', detailMode && page.dataset.route === route));
                 document.querySelectorAll('.nav-item a').forEach(link => {
