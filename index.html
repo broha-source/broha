@@ -487,6 +487,21 @@
         .attachment-item strong { display:block; font-size:.94rem; }
         .attachment-item small { color:var(--text-muted); }
         .attachment-status { color:#98a2b3; font-size:.78rem; }
+        .attachment-link { transition:border-color .2s ease, transform .2s ease, box-shadow .2s ease; }
+        .attachment-link:hover { border-color:#98a2b3; transform:translateY(-2px); box-shadow:0 10px 24px rgba(16,24,40,.08); }
+        .attachment-link .attachment-status { color:#344054; font-weight:700; }
+        .study-notes-archive { margin-top:42px; padding-top:8px; scroll-margin-top:92px; }
+        .study-notes-head { margin-bottom:20px; }
+        .study-notes-head h3 { margin:9px 0 5px; font-size:1.42rem; }
+        .study-notes-head p { color:var(--text-muted); }
+        .study-category-list { display:grid; gap:12px; }
+        .study-category { display:flex; align-items:center; justify-content:space-between; gap:20px; min-height:76px; padding:15px 17px; border:1px solid #e6eaf0; border-radius:12px; background:#fff; }
+        .study-category-copy { display:flex; align-items:center; gap:14px; min-width:0; }
+        .study-category-copy strong { line-height:1.35; }
+        .study-index { color:#98a2b3; font-size:.76rem; font-weight:700; letter-spacing:.08em; }
+        .study-pdf-btn { flex:0 0 auto; display:inline-flex; align-items:center; gap:7px; padding:8px 13px; border:1px solid #344054; border-radius:8px; color:#344054; font-size:.78rem; font-weight:700; transition:background .2s ease,color .2s ease; }
+        .study-pdf-btn:hover { background:#172033; color:#fff; }
+        @media(max-width:560px){ .study-category{align-items:flex-start}.study-category-copy{align-items:flex-start}.study-pdf-btn{margin-top:1px} }
         @media(max-width:760px){ .project-detail-head{grid-template-columns:1fr}.attachment-item{grid-template-columns:42px 1fr}.attachment-status{grid-column:2} }
     </style>
 </head>
@@ -701,10 +716,21 @@
             <article class="project-detail-block" id="project-pytorch">
                 <div class="project-detail-head"><div class="project-detail-copy"><span class="card-tag">Deep Learning</span><h2>Deep Learning with PyTorch Study</h2><p>PyTorch를 활용해 딥러닝의 핵심 개념, 모델 구현, 학습 및 평가 과정을 체계적으로 기록하는 스터디 프로젝트입니다.</p></div><div class="project-sketch"><img class="project-realistic-img" src="assets/pytorch-study-realistic-v1.png" alt="Realistic deep-learning research workstation"></div></div>
                 <div class="attachment-stack" aria-label="PyTorch study files">
-                    <div class="attachment-item"><span class="attachment-order">01</span><span><strong>Study Notes</strong><small>개념 정리 및 학습 기록</small></span><span class="attachment-status">PDF 추가 예정</span></div>
+                    <a class="attachment-item attachment-link" href="#project-pytorch-study-notes"><span class="attachment-order">01</span><span><strong>Study Notes</strong><small>개념 정리 및 학습 기록</small></span><span class="attachment-status">6 PDF <i class="fa-solid fa-arrow-right"></i></span></a>
                     <div class="attachment-item"><span class="attachment-order">02</span><span><strong>Code & Experiments</strong><small>모델 코드와 실험 결과</small></span><span class="attachment-status">자료 추가 예정</span></div>
                     <div class="attachment-item"><span class="attachment-order">03</span><span><strong>Presentation & Review</strong><small>발표자료 및 회고</small></span><span class="attachment-status">자료 추가 예정</span></div>
                 </div>
+                <section class="study-notes-archive" id="project-pytorch-study-notes">
+                    <div class="study-notes-head"><span class="card-tag">Study Notes</span><h3>Deep Learning Study Archive</h3><p>챕터별 개념 정리 및 학습 자료</p></div>
+                    <div class="study-category-list">
+                        <article class="study-category"><div class="study-category-copy"><span class="study-index">01</span><strong>ANN Study</strong></div><a class="study-pdf-btn" href="assets/study-notes/ann-study.pdf" target="_blank" rel="noopener noreferrer"><i class="fa-regular fa-file-pdf"></i> PDF</a></article>
+                        <article class="study-category"><div class="study-category-copy"><span class="study-index">02</span><strong>PCA &amp; MLE Study</strong></div><a class="study-pdf-btn" href="assets/study-notes/pca-mle-study.pdf" target="_blank" rel="noopener noreferrer"><i class="fa-regular fa-file-pdf"></i> PDF</a></article>
+                        <article class="study-category"><div class="study-category-copy"><span class="study-index">03</span><strong>Chapter 3: Core Machine Learning Algorithms</strong></div><a class="study-pdf-btn" href="assets/study-notes/chapter-3-core-machine-learning-algorithms.pdf" target="_blank" rel="noopener noreferrer"><i class="fa-regular fa-file-pdf"></i> PDF</a></article>
+                        <article class="study-category"><div class="study-category-copy"><span class="study-index">04</span><strong>Chapter 4: Getting Started with Deep Learning</strong></div><a class="study-pdf-btn" href="assets/study-notes/chapter-4-getting-started-deep-learning.pdf" target="_blank" rel="noopener noreferrer"><i class="fa-regular fa-file-pdf"></i> PDF</a></article>
+                        <article class="study-category"><div class="study-category-copy"><span class="study-index">05</span><strong>Chapter 5: Convolutional Neural Networks</strong></div><a class="study-pdf-btn" href="assets/study-notes/chapter-5-convolutional-neural-networks.pdf" target="_blank" rel="noopener noreferrer"><i class="fa-regular fa-file-pdf"></i> PDF</a></article>
+                        <article class="study-category"><div class="study-category-copy"><span class="study-index">06</span><strong>Chapter 7: Time Series Analysis</strong></div><a class="study-pdf-btn" href="assets/study-notes/chapter-7-time-series-analysis.pdf" target="_blank" rel="noopener noreferrer"><i class="fa-regular fa-file-pdf"></i> PDF</a></article>
+                    </div>
+                </section>
             </article>
         </div>
     </section>
