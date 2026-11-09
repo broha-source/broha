@@ -408,9 +408,10 @@
         .project-detail-block { scroll-margin-top:92px; }
         /* Blueprint Engineering + Digital Wind Tunnel Hero */
         #home { position: relative; min-height: 520px; display: flex; align-items: center; justify-content: center; overflow: hidden; isolation: isolate; }
-        #home::after { content: ''; position: absolute; inset: 0; z-index: -1; background: radial-gradient(circle at center, rgba(255,255,255,.72) 0%, rgba(247,249,252,.38) 48%, rgba(247,249,252,.88) 100%); pointer-events: none; }
+        #home::after { content: ''; position: absolute; inset: 0; z-index: -1; background: radial-gradient(circle at center, rgba(255,255,255,.76) 0%, rgba(247,249,252,.48) 48%, rgba(247,249,252,.9) 100%); pointer-events: none; }
         .hero-content { position: relative; z-index: 2; }
-        .engineering-visual { position: absolute; inset: 0; z-index: -2; opacity: .42; pointer-events: none; }
+        .engineering-visual { position: absolute; inset: 0; z-index: -2; opacity: .44; pointer-events: none; background: url('assets/hero-wireframe-v2.png') center/cover no-repeat; }
+        .engineering-video { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center; filter: saturate(.72) contrast(.88) brightness(1.12); }
         .blueprint-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(56,189,248,.11) 1px, transparent 1px), linear-gradient(90deg, rgba(56,189,248,.11) 1px, transparent 1px); background-size: 42px 42px; mask-image: radial-gradient(ellipse at center, #000 18%, transparent 76%); animation: gridDrift 20s linear infinite; }
         .engineering-svg { width: 100%; height: 100%; overflow: visible; }
         .engineering-photo { width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: .72; animation: blueprintPhotoFloat 9s ease-in-out infinite; }
@@ -425,8 +426,8 @@
         @keyframes blueprintFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
         @keyframes scanPulse { 0%,100% { opacity:.22; } 50% { opacity:.85; } }
         @keyframes gridDrift { to { background-position: 42px 42px; } }
-        @media (max-width: 720px) { .engineering-visual { opacity: .28; } .engineering-svg { transform: scale(1.28); } #home { min-height: 480px; } }
-        @media (prefers-reduced-motion: reduce) { .blueprint-grid, .engineering-photo, .jet-wire, .car-wire, .airflow path, .scan-points circle { animation: none !important; } }
+        @media (max-width: 720px) { .engineering-visual { opacity: .3; } .engineering-video { object-position: center; } .engineering-svg { transform: scale(1.28); } #home { min-height: 480px; } }
+        @media (prefers-reduced-motion: reduce) { .engineering-video { display: none; } .blueprint-grid, .engineering-photo, .jet-wire, .car-wire, .airflow path, .scan-points circle { animation: none !important; } }
 
         /* Full detail pages */
         .detail-page { display: none; min-height: calc(100vh - 70px); padding: 105px 0 75px; border-bottom: 1px solid #e6eaf0; }
@@ -528,8 +529,9 @@
 
     <section id="home">
         <div class="engineering-visual" aria-hidden="true">
-            <div class="blueprint-grid"></div>
-            <img class="engineering-photo" src="assets/hero-wireframe-v2.png" alt="">
+            <video class="engineering-video" autoplay muted loop playsinline preload="metadata" poster="assets/hero-wireframe-v2.png">
+                <source src="assets/odc-hero-background.mp4" type="video/mp4">
+            </video>
         </div>
         <div class="container hero-content">
             <h1>Ha Hyeong-Jin</h1>
