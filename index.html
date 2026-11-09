@@ -76,7 +76,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            width: 100%;
+            max-width: none;
             height: 70px;
+            padding-left: clamp(24px, 4vw, 72px);
+            padding-right: clamp(24px, 4vw, 72px);
         }
 
         .logo {
@@ -96,6 +100,10 @@
             display: flex;
             list-style: none;
             gap: 30px;
+        }
+
+        .nav-container nav {
+            margin-left: auto;
         }
 
         .nav-item a {
@@ -467,7 +475,7 @@
         .empty-detail { padding:45px 25px; text-align:center; color:var(--text-muted); border:1px dashed #cbd5e1; border-radius:14px; background:rgba(255,255,255,.55); }
         .nav-item a.active { color:var(--gemini-blue); }
         @keyframes pageIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:none; } }
-        @media(max-width:760px){ .nav-menu{gap:14px;flex-wrap:wrap;justify-content:flex-end}.nav-item a{font-size:.82rem}.detail-grid,.about-layout{grid-template-columns:1fr}.profile-placeholder{max-width:300px}.detail-page{padding-top:75px} }
+        @media(max-width:760px){ .nav-container{padding-left:16px;padding-right:16px}.nav-menu{gap:14px;flex-wrap:wrap;justify-content:flex-end}.nav-item a{font-size:.82rem}.detail-grid,.about-layout{grid-template-columns:1fr}.profile-placeholder{max-width:300px}.detail-page{padding-top:75px} }
 
         /* Project previews and attachment archive */
         .project-preview { display:block; padding:0; overflow:hidden; }
@@ -514,7 +522,7 @@
     <header>
         <div class="container nav-container">
             <a class="logo" href="#home" aria-label="홈으로 이동">
-                <img src="https://idealab.hanyang.ac.kr/images/04_text_symbol_white.png" alt="IDEA 로고">
+                <img src="assets/header-logo.png" alt="IDEA LAB 로고">
             </a>
             <nav>
                 <ul class="nav-menu">
