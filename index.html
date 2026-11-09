@@ -408,10 +408,10 @@
         .project-detail-block { scroll-margin-top:92px; }
         /* Blueprint Engineering + Digital Wind Tunnel Hero */
         #home { position: relative; min-height: 520px; display: flex; align-items: center; justify-content: center; overflow: hidden; isolation: isolate; }
-        #home::after { content: ''; position: absolute; inset: 0; z-index: -1; background: radial-gradient(circle at center, rgba(255,255,255,.76) 0%, rgba(247,249,252,.48) 48%, rgba(247,249,252,.9) 100%); pointer-events: none; }
+        #home::after { content: ''; position: absolute; inset: 0; z-index: -1; background: radial-gradient(circle at center, rgba(255,255,255,.58) 0%, rgba(247,249,252,.28) 48%, rgba(247,249,252,.76) 100%); pointer-events: none; }
         .hero-content { position: relative; z-index: 2; }
-        .engineering-visual { position: absolute; inset: 0; z-index: -2; opacity: .44; pointer-events: none; background: url('assets/hero-wireframe-v2.png') center/cover no-repeat; }
-        .engineering-video { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center; filter: saturate(.72) contrast(.88) brightness(1.12); }
+        .engineering-visual { position: absolute; inset: 0; z-index: -2; opacity: .68; pointer-events: none; background: url('assets/hero-wireframe-v2.png') center/cover no-repeat; }
+        .engineering-video { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center; filter: saturate(.86) contrast(.96) brightness(1.04); }
         .blueprint-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(56,189,248,.11) 1px, transparent 1px), linear-gradient(90deg, rgba(56,189,248,.11) 1px, transparent 1px); background-size: 42px 42px; mask-image: radial-gradient(ellipse at center, #000 18%, transparent 76%); animation: gridDrift 20s linear infinite; }
         .engineering-svg { width: 100%; height: 100%; overflow: visible; }
         .engineering-photo { width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: .72; animation: blueprintPhotoFloat 9s ease-in-out infinite; }
@@ -426,7 +426,7 @@
         @keyframes blueprintFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
         @keyframes scanPulse { 0%,100% { opacity:.22; } 50% { opacity:.85; } }
         @keyframes gridDrift { to { background-position: 42px 42px; } }
-        @media (max-width: 720px) { .engineering-visual { opacity: .3; } .engineering-video { object-position: center; } .engineering-svg { transform: scale(1.28); } #home { min-height: 480px; } }
+        @media (max-width: 720px) { .engineering-visual { opacity: .5; } .engineering-video { object-position: center; } .engineering-svg { transform: scale(1.28); } #home { min-height: 480px; } }
         @media (prefers-reduced-motion: reduce) { .engineering-video { display: none; } .blueprint-grid, .engineering-photo, .jet-wire, .car-wire, .airflow path, .scan-points circle { animation: none !important; } }
 
         /* Full detail pages */
