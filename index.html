@@ -491,8 +491,8 @@
         .attachment-link { transition:border-color .2s ease, transform .2s ease, box-shadow .2s ease; }
         .attachment-link:hover { border-color:#98a2b3; transform:translateY(-2px); box-shadow:0 10px 24px rgba(16,24,40,.08); }
         .attachment-link .attachment-status { color:#344054; font-weight:700; }
-        .demo-website-btn { display:inline-flex; align-items:center; justify-content:center; gap:10px; min-width:190px; padding:14px 22px; border:1px solid #172033; border-radius:10px; background:#172033; color:#fff; font-size:.92rem; font-weight:700; transition:transform .2s ease, box-shadow .2s ease, background .2s ease; }
-        .demo-website-btn:hover { transform:translateY(-2px); background:#29344a; box-shadow:0 12px 26px rgba(23,32,51,.18); }
+        .project-action-btn { display:inline-flex; align-items:center; justify-content:center; gap:10px; min-width:190px; padding:14px 22px; border:1px solid #172033; border-radius:10px; background:#172033; color:#fff; font-size:.92rem; font-weight:700; transition:transform .2s ease, box-shadow .2s ease, background .2s ease; }
+        .project-action-btn:hover { transform:translateY(-2px); background:#29344a; box-shadow:0 12px 26px rgba(23,32,51,.18); }
         .study-notes-archive { display:none; margin-top:42px; padding-top:8px; scroll-margin-top:92px; }
         .study-notes-archive.is-open { display:block; }
         .study-notes-head { margin-bottom:20px; }
@@ -712,15 +712,11 @@
             <div class="detail-hero"><span class="detail-eyebrow">Engineering Portfolio</span><h1>Project</h1><p>프로젝트별 설계 과정과 결과 자료를 순서대로 축적하는 기술 아카이브입니다.</p></div>
             <article class="project-detail-block" id="project-odc">
                 <div class="project-detail-head"><div class="project-detail-copy"><span class="card-tag">Thermal Engineering</span><h2>Cooling Channel Design for Space Data Center Heat Sinks</h2><p>우주 환경에서 운용되는 데이터센터의 열을 효율적으로 방출하기 위한 방열판 유로 구조 설계 프로젝트입니다.</p></div><div class="project-sketch"><img class="project-realistic-img" src="assets/odc-realistic-v1.png" alt="Realistic orbital data center thermal-management concept"></div></div>
-                <a class="demo-website-btn" href="https://broha-source.github.io/Orbit-data-center/?v=large-family-buttons-1#top" target="_blank" rel="noopener noreferrer">Demo Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                <a class="project-action-btn" href="https://broha-source.github.io/Orbit-data-center/?v=large-family-buttons-1#top" target="_blank" rel="noopener noreferrer">Demo Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
             </article>
             <article class="project-detail-block" id="project-pytorch">
                 <div class="project-detail-head"><div class="project-detail-copy"><span class="card-tag">Deep Learning</span><h2>Deep Learning with PyTorch Study</h2><p>PyTorch를 활용해 딥러닝의 핵심 개념, 모델 구현, 학습 및 평가 과정을 체계적으로 기록하는 스터디 프로젝트입니다.</p></div><div class="project-sketch"><img class="project-realistic-img" src="assets/pytorch-study-realistic-v1.png" alt="Realistic deep-learning research workstation"></div></div>
-                <div class="attachment-stack" aria-label="PyTorch study files">
-                    <a class="attachment-item attachment-link" href="#project-pytorch-study-notes"><span class="attachment-order">01</span><span><strong>Study Notes</strong><small>개념 정리 및 학습 기록</small></span><span class="attachment-status">7 PDF <i class="fa-solid fa-arrow-right"></i></span></a>
-                    <div class="attachment-item"><span class="attachment-order">02</span><span><strong>Code & Experiments</strong><small>모델 코드와 실험 결과</small></span><span class="attachment-status">자료 추가 예정</span></div>
-                    <div class="attachment-item"><span class="attachment-order">03</span><span><strong>Presentation & Review</strong><small>발표자료 및 회고</small></span><span class="attachment-status">자료 추가 예정</span></div>
-                </div>
+                <a class="project-action-btn" href="#project-pytorch-study-notes">Study Notes <i class="fa-solid fa-arrow-right"></i></a>
                 <section class="study-notes-archive" id="project-pytorch-study-notes">
                     <div class="study-notes-head"><span class="card-tag">Study Notes</span><h3>Deep Learning Study Archive</h3><p>챕터별 개념 정리 및 학습 자료</p></div>
                     <div class="study-category-list">
