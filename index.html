@@ -409,16 +409,13 @@
         .project-realistic-img { min-height:0; height:100%; }
         .project-preview-copy { min-height:210px; display:flex; flex-direction:column; align-items:flex-start; }
         .project-preview-copy .project-open { margin-top:auto; }
-        .hero-meta { display:grid; gap:4px; max-width:650px; margin:0 auto; color:rgba(226,232,240,.82); font-size:1rem; letter-spacing:.02em; text-shadow:0 2px 12px rgba(0,0,0,.6); }
-        .hero-meta span { display:block; }
-        .hero-meta strong { color:#f8fafc; font-size:.78rem; letter-spacing:.1em; margin-right:8px; }
         .project-realistic-img { width:100%; height:100%; min-height:210px; display:block; object-fit:cover; object-position:center; }
         .project-detail-block { scroll-margin-top:92px; }
         /* Blueprint Engineering + Digital Wind Tunnel Hero */
         #home { position: relative; min-height: 680px; padding:0; display: flex; align-items: flex-start; justify-content: center; overflow: hidden; isolation: isolate; }
         #home::after { content: ''; position: absolute; inset: 0; z-index: -1; background:linear-gradient(to bottom,rgba(8,15,28,.48) 0%,rgba(8,15,28,.18) 34%,transparent 62%); pointer-events:none; }
         #home h1 { color:#fff; text-shadow:0 3px 18px rgba(0,0,0,.68); }
-        .hero-content { position:absolute; top:46px; left:50%; width:100%; transform:translateX(-50%); z-index:2; }
+        .hero-content { position:absolute; top:22px; left:45%; width:100%; transform:translateX(-50%); z-index:2; }
         .engineering-visual { position: absolute; inset: 0; z-index: -2; opacity:1; pointer-events:none; background:#0b1220; }
         .engineering-video { width:100%; height:100%; display:block; object-fit:cover; object-position:center; filter:none; }
         #project { padding-top:38px; }
@@ -436,7 +433,7 @@
         @keyframes blueprintFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
         @keyframes scanPulse { 0%,100% { opacity:.22; } 50% { opacity:.85; } }
         @keyframes gridDrift { to { background-position: 42px 42px; } }
-        @media (max-width:720px) { #home{min-height:590px}.hero-content{top:34px;padding:0 18px}#home h1{font-size:2.55rem}.hero-meta{font-size:.88rem}.hero-meta strong{font-size:.7rem}.engineering-video{object-position:center}#project{padding-top:34px}.engineering-svg{transform:scale(1.28)} }
+        @media (max-width:720px) { #home{min-height:590px}.hero-content{top:22px;left:45%;padding:0 18px}#home h1{font-size:2.55rem}.engineering-video{object-position:center}#project{padding-top:34px}.engineering-svg{transform:scale(1.28)} }
         @media (prefers-reduced-motion: reduce) { .engineering-video { display: none; } .blueprint-grid, .engineering-photo, .jet-wire, .car-wire, .airflow path, .scan-points circle { animation: none !important; } }
 
         /* Full detail pages */
@@ -470,14 +467,15 @@
         .instagram-link { width:48px; height:48px; display:grid; place-items:center; margin-top:4px; border:1px solid #e6eaf0; border-radius:50%; background:#fff; color:#172033; font-size:1.35rem; transition:transform .2s ease, border-color .2s ease; }
         .instagram-link:hover { transform:translateY(-2px); border-color:#172033; }
         .about-copy h2 { font-size:2rem; }
-        .about-copy > p { margin-top:14px; color:var(--text-muted); }
+        .about-copy > p { margin-top:14px; color:var(--text-muted); font-size:.97rem; white-space:nowrap; }
         .contact-list { display:grid; gap:11px; margin-top:25px; }
         .contact-row { display:flex; align-items:center; gap:12px; min-height:50px; padding:11px 14px; color:var(--text-muted); border:1px solid #e6eaf0; border-radius:10px; background:#fff; }
         .contact-row i { width:20px; color:var(--text-main); text-align:center; }
+        .contact-row strong { display:inline-block; min-width:104px; margin-right:8px; color:var(--text-main); font-size:.72rem; letter-spacing:.08em; }
         .empty-detail { padding:45px 25px; text-align:center; color:var(--text-muted); border:1px dashed #cbd5e1; border-radius:14px; background:rgba(255,255,255,.55); }
         .nav-item a.active { color:var(--gemini-blue); }
         @keyframes pageIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:none; } }
-        @media(max-width:760px){ .nav-container{padding-left:16px;padding-right:16px}.nav-menu{gap:14px;flex-wrap:wrap;justify-content:flex-end}.nav-item a{font-size:.82rem}.detail-grid,.about-layout{grid-template-columns:1fr}.profile-placeholder{max-width:300px}.detail-page{padding-top:75px} }
+        @media(max-width:760px){ .nav-container{padding-left:16px;padding-right:16px}.nav-menu{gap:14px;flex-wrap:wrap;justify-content:flex-end}.nav-item a{font-size:.82rem}.detail-grid,.about-layout{grid-template-columns:1fr}.profile-placeholder{max-width:300px}.detail-page{padding-top:75px}.about-copy>p{white-space:normal} }
 
         /* Project previews and attachment archive */
         .project-preview { display:block; padding:0; overflow:hidden; }
@@ -547,7 +545,6 @@
         </div>
         <div class="container hero-content">
             <h1>Ha Hyeong-Jin</h1>
-            <div class="hero-meta"><span><strong>UNIVERSITY</strong> Hanyang University ERICA</span><span><strong>DEPARTMENT</strong> Mechanical Engineering</span><span><strong>POSITION</strong> Graduate Intern</span></div>
         </div>
     </section>
 
@@ -676,6 +673,9 @@
                 <img class="profile-photo-real" src="assets/IDEALAB_하형진.jpg" alt="Ha Hyeongjin 프로필 사진">
                 <div class="about-copy"><h2>Ha Hyeongjin</h2><p>Artificial Intelligence와 공학적 지식을 결합해 지능형 설계와 미래 모빌리티의 새로운 가능성을 탐구합니다.</p>
                     <div class="contact-list">
+                        <div class="contact-row"><i class="fa-solid fa-building-columns"></i><span><strong>UNIVERSITY</strong>Hanyang University ERICA</span></div>
+                        <div class="contact-row"><i class="fa-solid fa-gears"></i><span><strong>DEPARTMENT</strong>Mechanical Engineering</span></div>
+                        <div class="contact-row"><i class="fa-regular fa-id-badge"></i><span><strong>POSITION</strong>Graduate Intern</span></div>
                         <a class="contact-row" href="mailto:broha@hanyang.ac.kr"><i class="fa-regular fa-envelope"></i><span>broha@hanyang.ac.kr</span></a>
                         <div class="contact-row"><i class="fa-solid fa-location-dot"></i><span>5공학관 224호</span></div>
                     </div>
