@@ -825,6 +825,13 @@
     <script>
         (function () {
             const routes = ['about','research','achievements','project','news'];
+            if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+
+            function scrollHomeToTop() {
+                window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+                requestAnimationFrame(() => window.scrollTo(0, 0));
+            }
+
             function renderRoute() {
                 const raw = location.hash.replace('#','');
                 const route = raw.startsWith('project-') ? 'project' : raw.replace('-page','');
@@ -843,9 +850,15 @@
                         if (target && raw.startsWith('project-')) target.scrollIntoView({ behavior:'smooth', block:'start' });
                         else window.scrollTo(0,0);
                     });
+                } else if (!raw || raw === 'home') {
+                    requestAnimationFrame(scrollHomeToTop);
                 }
             }
             window.addEventListener('hashchange', renderRoute);
+            window.addEventListener('pageshow', () => {
+                const raw = location.hash.replace('#','');
+                if (!raw || raw === 'home') scrollHomeToTop();
+            });
             renderRoute();
         }());
     </script>
